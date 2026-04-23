@@ -1,65 +1,257 @@
-import Image from "next/image";
+import Link from "next/link";
+import { SectionShell } from "@/components/section-shell";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+    <>
+      <SectionShell
+        id="home"
+        eyebrow="FloLabs International"
+        title="Advanced AI and Robotics Program"
+      >
+        <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-4xl">
+          Get Recruited Today
+        </h2>
+        <p className="mt-5 max-w-4xl text-base leading-7 text-muted">
+          Join the FloLabs family and kickstart your career in AI and robotic
+          technologies. We are on a mission to bring the world together with the
+          latest trends in AI and robotics. We are looking for individuals who
+          are hungry for more growth in their experience and knowledge. Gain the
+          experience you desire by applying with us on the programs page.
+        </p>
+      </SectionShell>
+
+      <SectionShell
+        id="projects"
+        eyebrow="Our Projects"
+        title="Check out our most exciting projects we've going on right now."
+      >
+        <div className="grid gap-5 sm:grid-cols-2">
+          <article className="rounded-2xl border border-border bg-card/80 p-5 sm:p-6">
+            <h3 className="text-xl font-semibold text-foreground sm:text-2xl">MoodChanger</h3>
+            <p className="mt-3 text-sm leading-6 text-muted">
+              What Project Is: An AI-powered platform designed to enhance
+              emotional well-being. It leverages advanced AI models to analyze
+              user inputs and generate ...
+            </p>
+            <Link
+              href="/projects/moodchanger"
+              className="mt-4 inline-flex min-h-10 items-center text-sm font-semibold text-accent hover:text-primary"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              Learn More →
+            </Link>
+          </article>
+
+          <article className="rounded-2xl border border-border bg-card/80 p-5 sm:p-6">
+            <h3 className="text-xl font-semibold text-foreground sm:text-2xl">CAIPO</h3>
+            <p className="mt-3 text-sm leading-6 text-muted">
+              What Project Is: CAIPO is Chief Artificial Intelligence
+              Productivity Officer. This is a wearable AI tech that can record
+              audio and video for note taki...
+            </p>
+            <Link
+              href="/projects/caipo"
+              className="mt-4 inline-flex min-h-10 items-center text-sm font-semibold text-accent hover:text-primary"
             >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+              Learn More →
+            </Link>
+          </article>
+
+          <article className="rounded-2xl border border-border bg-card/80 p-5 sm:p-6">
+            <h3 className="text-xl font-semibold text-foreground sm:text-2xl">FloStudios</h3>
+            <p className="mt-3 text-sm leading-6 text-muted">
+              What The Project Is: FloStudios will serve as a hub for creativity
+              and innovation, bringing together UX/UI designers, multimedia
+              creators, and market...
+            </p>
+            <Link
+              href="/projects/flo-studios"
+              className="mt-4 inline-flex min-h-10 items-center text-sm font-semibold text-accent hover:text-primary"
+            >
+              Learn More →
+            </Link>
+          </article>
+
+          <article className="rounded-2xl border border-border bg-card/80 p-5 sm:p-6">
+            <h3 className="text-xl font-semibold text-foreground sm:text-2xl">Flo Travel</h3>
+            <p className="mt-3 text-sm leading-6 text-muted">
+              AI is taking over in the market for travel. Flo Travel is using AI
+              to help clients plan their trips accordingly. Plan your flight,
+              hotel, trip, activi...
+            </p>
+            <Link
+              href="/projects/flo-travel"
+              className="mt-4 inline-flex min-h-10 items-center text-sm font-semibold text-accent hover:text-primary"
+            >
+              Learn More →
+            </Link>
+          </article>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </SectionShell>
+
+      <SectionShell
+        eyebrow="Ambitious Innovative Projects"
+        title="Enjoy collaborating with other thoughtful professionals that are passionate about bringing a vision to life!"
+      >
+        <p className="text-base leading-7 text-muted">
+          We offer experiential learning, a unique and immersive educational
+          training program with hands-on, real world experience.
+        </p>
+        <p className="mt-4 text-base leading-7 text-muted">
+          FloLabs Innovations Group is an incubator launching innovative
+          projects in AI and Robotics. We enhance learning and project outcomes
+          through teamwork, idea sharing, and innovative methods like
+          brainstorming and LLM automation, preparing students with practical
+          skills.
+        </p>
+      </SectionShell>
+
+      <SectionShell
+        eyebrow="Our Verticals"
+        title="We focus on four main verticals in our expertise."
+      >
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <article className="rounded-2xl border border-border bg-card/90 p-5">
+            <h3 className="text-xl font-semibold text-foreground">Education</h3>
+            <p className="mt-3 text-sm leading-6 text-muted">
+              Experiential learning through cutting-edge programs and
+              internships that equip students with real-world skills to thrive
+              in a global and dynamic economy.
+            </p>
+          </article>
+          <article className="rounded-2xl border border-border bg-card/90 p-5">
+            <h3 className="text-xl font-semibold text-foreground">Healthcare</h3>
+            <p className="mt-3 text-sm leading-6 text-muted">
+              Empowering healthcare innovation with AI-driven insights,
+              advancing global well-being through smarter diagnostics and
+              personalized care solutions.
+            </p>
+          </article>
+          <article className="rounded-2xl border border-border bg-card/90 p-5">
+            <h3 className="text-xl font-semibold text-foreground">Travel</h3>
+            <p className="mt-3 text-sm leading-6 text-muted">
+              Revolutionizing travel with a personalized, AI-powered travel
+              platform and chatbot that creates unforgettable experiences
+              tailored to your unique journey.
+            </p>
+          </article>
+          <article className="rounded-2xl border border-border bg-card/90 p-5">
+            <h3 className="text-xl font-semibold text-foreground">Space</h3>
+            <p className="mt-3 text-sm leading-6 text-muted">
+              Expanding the boundaries of innovation with AI solutions for space
+              exploration, education, research, and sustainable development in
+              the space sector.
+            </p>
+          </article>
         </div>
-      </main>
-    </div>
+      </SectionShell>
+
+      <SectionShell eyebrow="Long Live Learning">
+        <p className="text-base leading-7 text-muted">
+          Learn about the latest trends in technology. We are learning about the
+          future of AI, robotics, education, and so much more. Every day is a
+          great day to learn and we want to continuously learn and we expand.
+        </p>
+        <p className="mt-4 text-base leading-7 text-muted">
+          FloLabs Innovations Group wants to prepare you for your own journey in
+          your career. We help you learn the way you want to learn so you can
+          achieve your goals of getting to the next level.
+        </p>
+      </SectionShell>
+
+      <SectionShell eyebrow="Our Benefits">
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <article className="rounded-2xl border border-border bg-card/90 p-5">
+            <h3 className="text-xl font-semibold text-foreground">Flexibility</h3>
+            <p className="mt-3 text-sm leading-6 text-muted">
+              We offer you the flexibility you need to complete your tasks. We
+              know you have a busy schedule and we offer you the ability to work
+              at your own pace on your own time.
+            </p>
+          </article>
+          <article className="rounded-2xl border border-border bg-card/90 p-5">
+            <h3 className="text-xl font-semibold text-foreground">
+              Affordability
+            </h3>
+            <p className="mt-3 text-sm leading-6 text-muted">
+              We can provide the learning experience needed for your success
+              without breaking the bank.
+            </p>
+          </article>
+          <article className="rounded-2xl border border-border bg-card/90 p-5">
+            <h3 className="text-xl font-semibold text-foreground">
+              Opportunities
+            </h3>
+            <p className="mt-3 text-sm leading-6 text-muted">
+              We focus on AI and robotic technologies because this is the future
+              for humanity. The opportunities here will lead you to greater
+              opportunities of the future. We want to see you succeed in
+              creating better technology for the future.
+            </p>
+          </article>
+          <article className="rounded-2xl border border-border bg-card/90 p-5">
+            <h3 className="text-xl font-semibold text-foreground">Expertise</h3>
+            <p className="mt-3 text-sm leading-6 text-muted">
+              Learn with us as we discover the latest trends in AI and robotics.
+              We want you to learn and know the best technologies available as
+              we improve the world around us technologically.
+            </p>
+          </article>
+        </div>
+      </SectionShell>
+
+      <SectionShell
+        eyebrow="HELPING PEOPLE LEARN BETTER."
+        title="Our methodology is to foster collaboration and creativity."
+      >
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <article className="rounded-xl border border-border bg-card/90 p-4">
+            <h3 className="text-base font-semibold text-foreground">
+              Recorded Meetings
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-muted">
+              We record and transcribe every meeting so you can easily review
+              information when necessary.
+            </p>
+          </article>
+          <article className="rounded-xl border border-border bg-card/90 p-4">
+            <h3 className="text-base font-semibold text-foreground">
+              Brainwriting Exercises
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-muted">
+              Brain writing is an exercise to help the brain get into a creative
+              and productive state.
+            </p>
+          </article>
+          <article className="rounded-xl border border-border bg-card/90 p-4">
+            <h3 className="text-base font-semibold text-foreground">
+              Advanced AI Tools
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-muted">
+              Language Learning Models (LLMs) help automate workflow,
+              brainstorm and advise work production.
+            </p>
+          </article>
+          <article className="rounded-xl border border-border bg-card/90 p-4">
+            <h3 className="text-base font-semibold text-foreground">
+              Industry Experts
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-muted">
+              Mentorship and guidance is provided through a variety of
+              participants, advisors, and partners.
+            </p>
+          </article>
+          <article className="rounded-xl border border-border bg-card/90 p-4">
+            <h3 className="text-base font-semibold text-foreground">
+              Hands-on Projects
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-muted">
+              We work on interesting AI projects that create a better future for
+              humanity.
+            </p>
+          </article>
+        </div>
+      </SectionShell>
+    </>
   );
 }
