@@ -24,6 +24,11 @@ export const metadata: Metadata = {
   title: "FloLabs International | Innovation in AI & Robotics",
   description:
     "FloLabs Innovations Group is an incubator launching innovative AI and robotics projects with experiential learning programs.",
+  icons: {
+    icon: "/flolabs-logo.svg",
+    shortcut: "/flolabs-logo.svg",
+    apple: "/flolabs-logo.svg",
+  },
 };
 
 export default function RootLayout({

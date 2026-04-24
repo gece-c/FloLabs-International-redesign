@@ -3,7 +3,7 @@ import Link from "next/link";
 export function SiteFooter() {
   return (
     <footer className="mt-auto border-t border-border/80 bg-card/60">
-      <div className="mx-auto grid w-full max-w-6xl gap-10 px-4 py-10 sm:px-6 md:grid-cols-2 lg:grid-cols-3 lg:px-8">
+      <div className="mx-auto grid w-full max-w-6xl gap-6 px-4 py-7 sm:px-6 md:grid-cols-2 lg:grid-cols-3 lg:px-8">
         <div>
           <p className="text-sm font-semibold tracking-wide text-foreground break-words">
             FloLabs International
@@ -17,40 +17,40 @@ export function SiteFooter() {
           <p className="text-sm font-semibold uppercase tracking-wide text-foreground">
             Our Projects
           </p>
-          <div className="mt-3 space-y-2 text-sm">
+          <div className="mt-2 space-y-1 text-sm">
             <Link
               href="/projects/caipo"
-              className="inline-flex min-h-10 items-center text-muted transition hover:text-foreground"
+              className="flex min-h-8 w-full items-center text-muted transition hover:text-foreground"
             >
               CAIPO
             </Link>
             <Link
               href="/projects"
-              className="inline-flex min-h-10 items-center text-muted transition hover:text-foreground"
+              className="flex min-h-8 w-full items-center text-muted transition hover:text-foreground"
             >
               Moodchanger.ai
             </Link>
             <Link
               href="/projects"
-              className="inline-flex min-h-10 items-center text-muted transition hover:text-foreground"
+              className="flex min-h-8 w-full items-center text-muted transition hover:text-foreground"
             >
               Moodchanger for Pets
             </Link>
             <Link
               href="/projects/flo-travel"
-              className="inline-flex min-h-10 items-center text-muted transition hover:text-foreground"
+              className="flex min-h-8 w-full items-center text-muted transition hover:text-foreground"
             >
               Flo Travel
             </Link>
             <Link
               href="/about"
-              className="inline-flex min-h-10 items-center text-muted transition hover:text-foreground"
+              className="flex min-h-8 w-full items-center text-muted transition hover:text-foreground"
             >
               FloLabs Innovations Group
             </Link>
             <Link
               href="/projects/flo-studios"
-              className="inline-flex min-h-10 items-center text-muted transition hover:text-foreground"
+              className="flex min-h-8 w-full items-center text-muted transition hover:text-foreground"
             >
               Flo Studios
             </Link>
@@ -63,7 +63,7 @@ export function SiteFooter() {
           </p>
           <a
             href="https://www.linkedin.com/company/flolabs-innovation/"
-            className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-full border border-border/60 px-3 text-sm text-muted transition hover:border-primary hover:text-foreground"
+            className="mt-2 inline-flex min-h-9 items-center gap-2 rounded-full border border-border/60 px-3 text-sm text-muted transition hover:border-primary hover:text-foreground"
             target="_blank"
             rel="noreferrer"
           >
