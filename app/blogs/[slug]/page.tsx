@@ -164,7 +164,7 @@ export default async function BlogDetailPage({ params }: Props) {
       articleNodes.push(
         <details
           key={`${post.slug}-faq-${index}`}
-          className="group rounded-lg border border-border/80 bg-card/30 px-4 py-3"
+          className="glass-card group rounded-lg border px-4 py-3"
         >
           <summary className="cursor-pointer list-none text-base font-semibold text-foreground marker:content-none">
             <span className="inline-flex items-center gap-2">
@@ -291,11 +291,11 @@ export default async function BlogDetailPage({ params }: Props) {
         </div>
       </div>
 
-      <article className="mt-8 space-y-3">
+      <article className="mt-8 space-y-3 break-words">
         {articleNodes}
       </article>
 
-      <section className="mt-10 rounded-2xl border border-border bg-card p-6">
+      <section className="glass-card mt-10 rounded-2xl border p-6">
         <h2 className="text-lg font-semibold text-foreground">Related Articles</h2>
         <div className="mt-4 space-y-4">
           {post.relatedArticles.map((article) => {
@@ -304,7 +304,7 @@ export default async function BlogDetailPage({ params }: Props) {
               <Link
                 key={article.slug}
                 href={`/blogs/${article.slug}`}
-                className="group block rounded-xl border border-border p-4 transition-colors hover:border-primary/60 hover:bg-background/40"
+                className="glass-card group block rounded-xl border p-4 transition-colors hover:border-primary/60 hover:brightness-105"
               >
                 <h3 className="text-base font-semibold text-foreground group-hover:text-primary">
                   {article.title}
@@ -320,7 +320,7 @@ export default async function BlogDetailPage({ params }: Props) {
       </section>
 
       {post.ctaTitle && post.ctaText && post.ctaLabel && post.ctaHref ? (
-        <section className="mt-8 rounded-2xl border border-border bg-card p-6">
+        <section className="glass-card mt-8 rounded-2xl border p-6">
           <h2 className="text-lg font-semibold text-foreground">{post.ctaTitle}</h2>
           <p className="mt-2 text-sm leading-6 text-muted">{post.ctaText}</p>
           <Link

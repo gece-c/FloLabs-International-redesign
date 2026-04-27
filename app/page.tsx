@@ -1,7 +1,10 @@
 import Link from "next/link";
 import { SectionShell } from "@/components/section-shell";
+import { projects } from "@/lib/site-data";
 
 export default function Home() {
+  const featuredProjects = projects.slice(0, 4);
+
   return (
     <>
       <SectionShell
@@ -24,68 +27,30 @@ export default function Home() {
       <SectionShell
         id="projects"
         eyebrow="Our Projects"
-        title="Check out our most exciting projects we've going on right now."
+        title="Explore a few of our most exciting projects."
       >
         <div className="grid gap-5 sm:grid-cols-2">
-          <article className="rounded-2xl border border-border bg-card/80 p-5 sm:p-6">
-            <h3 className="text-xl font-semibold text-foreground sm:text-2xl">MoodChanger</h3>
-            <p className="mt-3 text-sm leading-6 text-muted">
-              What Project Is: An AI-powered platform designed to enhance
-              emotional well-being. It leverages advanced AI models to analyze
-              user inputs and generate ...
-            </p>
-            <Link
-              href="/projects/moodchanger"
-              className="mt-4 inline-flex min-h-10 items-center text-sm font-semibold text-accent hover:text-primary"
-            >
-              Learn More →
-            </Link>
-          </article>
+          {featuredProjects.map((project) => (
+            <article key={project.slug} className="glass-card rounded-2xl border p-5 sm:p-6">
+              <h3 className="text-xl font-semibold text-foreground sm:text-2xl">{project.name}</h3>
+              <p className="mt-3 text-sm leading-6 text-muted">{project.summary}</p>
+              <Link
+                href={`/projects/${project.slug}`}
+                className="mt-4 inline-flex min-h-10 items-center text-sm font-semibold text-accent hover:text-primary"
+              >
+                Learn More →
+              </Link>
+            </article>
+          ))}
+        </div>
 
-          <article className="rounded-2xl border border-border bg-card/80 p-5 sm:p-6">
-            <h3 className="text-xl font-semibold text-foreground sm:text-2xl">CAIPO</h3>
-            <p className="mt-3 text-sm leading-6 text-muted">
-              What Project Is: CAIPO is Chief Artificial Intelligence
-              Productivity Officer. This is a wearable AI tech that can record
-              audio and video for note taki...
-            </p>
-            <Link
-              href="/projects/caipo"
-              className="mt-4 inline-flex min-h-10 items-center text-sm font-semibold text-accent hover:text-primary"
-            >
-              Learn More →
-            </Link>
-          </article>
-
-          <article className="rounded-2xl border border-border bg-card/80 p-5 sm:p-6">
-            <h3 className="text-xl font-semibold text-foreground sm:text-2xl">FloStudios</h3>
-            <p className="mt-3 text-sm leading-6 text-muted">
-              What The Project Is: FloStudios will serve as a hub for creativity
-              and innovation, bringing together UX/UI designers, multimedia
-              creators, and market...
-            </p>
-            <Link
-              href="/projects/flo-studios"
-              className="mt-4 inline-flex min-h-10 items-center text-sm font-semibold text-accent hover:text-primary"
-            >
-              Learn More →
-            </Link>
-          </article>
-
-          <article className="rounded-2xl border border-border bg-card/80 p-5 sm:p-6">
-            <h3 className="text-xl font-semibold text-foreground sm:text-2xl">Flo Travel</h3>
-            <p className="mt-3 text-sm leading-6 text-muted">
-              AI is taking over in the market for travel. Flo Travel is using AI
-              to help clients plan their trips accordingly. Plan your flight,
-              hotel, trip, activi...
-            </p>
-            <Link
-              href="/projects/flo-travel"
-              className="mt-4 inline-flex min-h-10 items-center text-sm font-semibold text-accent hover:text-primary"
-            >
-              Learn More →
-            </Link>
-          </article>
+        <div className="mt-6 flex">
+          <Link
+            href="/projects"
+            className="inline-flex min-h-11 items-center rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary"
+          >
+            Explore All Projects
+          </Link>
         </div>
       </SectionShell>
 
@@ -111,7 +76,7 @@ export default function Home() {
         title="We focus on four main verticals in our expertise."
       >
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <article className="rounded-2xl border border-border bg-card/90 p-5">
+          <article className="glass-card rounded-2xl border p-5">
             <h3 className="text-xl font-semibold text-foreground">Education</h3>
             <p className="mt-3 text-sm leading-6 text-muted">
               Experiential learning through cutting-edge programs and
@@ -119,7 +84,7 @@ export default function Home() {
               in a global and dynamic economy.
             </p>
           </article>
-          <article className="rounded-2xl border border-border bg-card/90 p-5">
+          <article className="glass-card rounded-2xl border p-5">
             <h3 className="text-xl font-semibold text-foreground">Healthcare</h3>
             <p className="mt-3 text-sm leading-6 text-muted">
               Empowering healthcare innovation with AI-driven insights,
@@ -127,7 +92,7 @@ export default function Home() {
               personalized care solutions.
             </p>
           </article>
-          <article className="rounded-2xl border border-border bg-card/90 p-5">
+          <article className="glass-card rounded-2xl border p-5">
             <h3 className="text-xl font-semibold text-foreground">Travel</h3>
             <p className="mt-3 text-sm leading-6 text-muted">
               Revolutionizing travel with a personalized, AI-powered travel
@@ -135,7 +100,7 @@ export default function Home() {
               tailored to your unique journey.
             </p>
           </article>
-          <article className="rounded-2xl border border-border bg-card/90 p-5">
+          <article className="glass-card rounded-2xl border p-5">
             <h3 className="text-xl font-semibold text-foreground">Space</h3>
             <p className="mt-3 text-sm leading-6 text-muted">
               Expanding the boundaries of innovation with AI solutions for space
@@ -161,7 +126,7 @@ export default function Home() {
 
       <SectionShell eyebrow="Our Benefits">
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <article className="rounded-2xl border border-border bg-card/90 p-5">
+          <article className="glass-card rounded-2xl border p-5">
             <h3 className="text-xl font-semibold text-foreground">Flexibility</h3>
             <p className="mt-3 text-sm leading-6 text-muted">
               We offer you the flexibility you need to complete your tasks. We
@@ -169,7 +134,7 @@ export default function Home() {
               at your own pace on your own time.
             </p>
           </article>
-          <article className="rounded-2xl border border-border bg-card/90 p-5">
+          <article className="glass-card rounded-2xl border p-5">
             <h3 className="text-xl font-semibold text-foreground">
               Affordability
             </h3>
@@ -178,7 +143,7 @@ export default function Home() {
               without breaking the bank.
             </p>
           </article>
-          <article className="rounded-2xl border border-border bg-card/90 p-5">
+          <article className="glass-card rounded-2xl border p-5">
             <h3 className="text-xl font-semibold text-foreground">
               Opportunities
             </h3>
@@ -189,7 +154,7 @@ export default function Home() {
               creating better technology for the future.
             </p>
           </article>
-          <article className="rounded-2xl border border-border bg-card/90 p-5">
+          <article className="glass-card rounded-2xl border p-5">
             <h3 className="text-xl font-semibold text-foreground">Expertise</h3>
             <p className="mt-3 text-sm leading-6 text-muted">
               Learn with us as we discover the latest trends in AI and robotics.
@@ -205,7 +170,7 @@ export default function Home() {
         title="Our methodology is to foster collaboration and creativity."
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          <article className="rounded-xl border border-border bg-card/90 p-4">
+          <article className="glass-card rounded-xl border p-4">
             <h3 className="text-base font-semibold text-foreground">
               Recorded Meetings
             </h3>
@@ -214,7 +179,7 @@ export default function Home() {
               information when necessary.
             </p>
           </article>
-          <article className="rounded-xl border border-border bg-card/90 p-4">
+          <article className="glass-card rounded-xl border p-4">
             <h3 className="text-base font-semibold text-foreground">
               Brainwriting Exercises
             </h3>
@@ -223,7 +188,7 @@ export default function Home() {
               and productive state.
             </p>
           </article>
-          <article className="rounded-xl border border-border bg-card/90 p-4">
+          <article className="glass-card rounded-xl border p-4">
             <h3 className="text-base font-semibold text-foreground">
               Advanced AI Tools
             </h3>
@@ -232,7 +197,7 @@ export default function Home() {
               brainstorm and advise work production.
             </p>
           </article>
-          <article className="rounded-xl border border-border bg-card/90 p-4">
+          <article className="glass-card rounded-xl border p-4">
             <h3 className="text-base font-semibold text-foreground">
               Industry Experts
             </h3>
@@ -241,7 +206,7 @@ export default function Home() {
               participants, advisors, and partners.
             </p>
           </article>
-          <article className="rounded-xl border border-border bg-card/90 p-4">
+          <article className="glass-card rounded-xl border p-4">
             <h3 className="text-base font-semibold text-foreground">
               Hands-on Projects
             </h3>

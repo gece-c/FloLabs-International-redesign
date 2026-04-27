@@ -31,7 +31,7 @@ export default function AboutPage() {
           ].map((item) => (
             <article
               key={item}
-              className="rounded-2xl border border-border bg-card p-5 text-sm leading-6 text-muted"
+              className="glass-card rounded-2xl border p-5 text-sm leading-6 text-muted"
             >
               {item}
             </article>

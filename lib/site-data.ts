@@ -129,6 +129,47 @@ export const projects: Project[] = [
     ],
     siteUrl: "https://www.robocollective.ai/",
   },
+  {
+    slug: "hephaestus-international",
+    name: "Hephaestus International",
+    summary:
+      "An experiential learning institute focused on innovation, education, and advanced technology development.",
+    whatProjectIs:
+      "Hephaestus International is an experiential learning initiative dedicated to innovation, education, and advanced technology development.",
+    currentWork:
+      "We are expanding our experiential learning pathways, practical innovation programs, and collaborative opportunities across AI, robotics, and emerging technologies.",
+  },
+  {
+    slug: "flolabs-international",
+    name: "FloLabs International",
+    summary:
+      "A global hub highlighting FloLabs' mission, projects, and collaboration opportunities.",
+    whatProjectIs:
+      "FloLabs International is a global platform that presents our mission, showcases active projects, and connects collaborators, students, and partners.",
+    currentWork:
+      "We are improving the platform experience to better surface programs, project highlights, and pathways for internships and collaboration.",
+    siteUrl: "https://www.flolabs.international/",
+  },
+  {
+    slug: "flo-brain",
+    name: "Flo Brain",
+    summary:
+      "An AI-native initiative focused on knowledge workflows, intelligent assistants, and practical team productivity systems.",
+    whatProjectIs:
+      "Flo Brain is an AI-native initiative that builds practical systems for knowledge management, intelligent assistants, and team productivity.",
+    currentWork:
+      "We are developing workflow automations, assistant experiences, and internal tooling that help teams move from ideas to execution faster.",
+  },
+  {
+    slug: "connecting-the-dots",
+    name: "Connecting the Dots",
+    summary:
+      "A cross-disciplinary initiative connecting ideas, teams, and execution into clearer and more actionable outcomes.",
+    whatProjectIs:
+      "Connecting the Dots is a cross-functional initiative designed to align ideas, people, and delivery into coherent, actionable programs.",
+    currentWork:
+      "We are building collaborative frameworks and communication systems that reduce friction between teams and improve end-to-end project execution.",
+  },
 ];
 
 export const verticals = [

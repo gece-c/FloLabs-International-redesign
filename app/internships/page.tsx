@@ -29,7 +29,7 @@ export default function InternshipsPage() {
           ].map((benefit) => (
             <article
               key={benefit}
-              className="rounded-2xl border border-border bg-card p-5 text-sm leading-6 text-muted"
+              className="glass-card rounded-2xl border p-5 text-sm leading-6 text-muted"
             >
               {benefit}
             </article>

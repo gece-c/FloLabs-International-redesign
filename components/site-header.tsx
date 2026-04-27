@@ -10,20 +10,20 @@ export function SiteHeader() {
         <div className="flex items-center justify-between gap-3 sm:gap-6">
           <Link
             href="/"
-            className="inline-flex max-w-[75vw] items-center gap-2 text-base font-bold leading-none tracking-wide text-foreground sm:max-w-none sm:text-lg"
+            className="inline-flex max-w-[calc(100vw-6.5rem)] items-center gap-2.5 text-lg font-bold leading-none tracking-wide text-foreground sm:max-w-none sm:gap-3 sm:text-xl"
           >
             <Image
               src="/flolabs-logo.svg"
               alt="FloLabs International logo"
-              width={28}
-              height={28}
-              className="h-7 w-7"
+              width={36}
+              height={36}
+              className="h-9 w-9 sm:h-10 sm:w-10"
               priority
             />
-            <span className="inline-flex h-7 items-center truncate sm:hidden">
+            <span className="relative top-px inline-flex h-9 items-center truncate sm:hidden">
               FloLabs
             </span>
-            <span className="hidden h-7 items-center truncate sm:inline-flex">
+            <span className="relative top-px hidden h-10 items-center truncate sm:inline-flex">
               FloLabs International
             </span>
           </Link>

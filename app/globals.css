@@ -4,6 +4,15 @@
   --background: #f2f2f2;
   --foreground: #00080d;
   --card: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-border: rgba(30, 70, 130, 0.28);
+  --glass-shadow: 0 14px 36px rgba(0, 52, 155, 0.16);
+  --glass-tint-primary: rgba(0, 52, 155, 0.26);
+  --glass-tint-secondary: rgba(4, 118, 217, 0.24);
+  --glass-tint-accent: rgba(217, 156, 43, 0.2);
+  --glass-highlight: rgba(255, 255, 255, 0.64);
+  --glass-gradient-start: rgba(4, 118, 217, 0.22);
+  --glass-gradient-end: rgba(217, 156, 43, 0.08);
   --muted: #2f3f52;
   --border: #cdd3dc;
   --primary: #00349b;
@@ -27,6 +36,15 @@
   --background: #00080d;
   --foreground: #f2f2f2;
   --card: #061626;
+  --glass-bg: rgba(6, 22, 38, 0.5);
+  --glass-border: rgba(157, 178, 203, 0.34);
+  --glass-shadow: 0 18px 44px rgba(0, 0, 0, 0.5);
+  --glass-tint-primary: rgba(4, 118, 217, 0.3);
+  --glass-tint-secondary: rgba(0, 52, 155, 0.27);
+  --glass-tint-accent: rgba(217, 156, 43, 0.12);
+  --glass-highlight: rgba(157, 178, 203, 0.2);
+  --glass-gradient-start: rgba(4, 118, 217, 0.36);
+  --glass-gradient-end: rgba(217, 156, 43, 0.1);
   --muted: #9db2cb;
   --border: #1b3046;
   --primary: #0476d9;
@@ -34,15 +52,36 @@
   --accent: #d99c2b;
 }
 
+.glass-card {
+  background-color: var(--glass-bg);
+  background-image:
+    radial-gradient(130% 135% at 0% 0%, var(--glass-highlight) 0%, transparent 44%),
+    linear-gradient(
+      308deg,
+      var(--glass-gradient-start) 0%,
+      var(--glass-gradient-end) 42%,
+      var(--glass-gradient-end) 72%,
+      transparent 100%
+    );
+  border-color: var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  backdrop-filter: blur(13px) saturate(130%);
+  -webkit-backdrop-filter: blur(13px) saturate(130%);
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-inter), Arial, Helvetica, sans-serif;
-  overflow-x: hidden;
+  width: 100%;
+  min-height: 100dvh;
+  overflow-x: clip;
 }
 
 html {
   scroll-padding-top: 6rem;
+  width: 100%;
+  overflow-x: clip;
 }
 
 *,
@@ -85,4 +124,21 @@ h6 {
 p,
 li {
   text-wrap: pretty;
+}
+
+pre,
+code,
+table {
+  max-width: 100%;
+}
+
+pre {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+table {
+  display: block;
+  overflow-x: auto;
+  white-space: nowrap;
 }

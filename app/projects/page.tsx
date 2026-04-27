@@ -13,13 +13,13 @@ export default function ProjectsPage() {
         {projects.map((project) => (
           <article
             key={project.slug}
-            className="rounded-2xl border border-border bg-card p-6"
+            className="glass-card rounded-2xl border p-6"
           >
             <h2 className="text-xl font-semibold text-foreground">
               {project.name}
             </h2>
             <p className="mt-3 text-sm leading-6 text-muted">{project.summary}</p>
-            <div className="mt-5 flex items-center justify-between gap-4">
+            <div className="mt-5 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:justify-between">
               {project.siteUrl ? (
                 <Link
                   href={project.siteUrl}

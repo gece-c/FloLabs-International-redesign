@@ -13,7 +13,7 @@ export default function BlogsPage() {
         {blogPosts.map((post) => (
           <article
             key={post.slug}
-            className="rounded-2xl border border-border bg-card p-6"
+            className="glass-card rounded-2xl border p-6"
           >
             <h2 className="text-lg font-semibold text-foreground">{post.title}</h2>
             <div className="mt-2 space-y-1 text-xs text-muted">

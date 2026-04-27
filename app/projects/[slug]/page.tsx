@@ -25,26 +25,30 @@ export default async function ProjectDetailPage({ params }: Props) {
       title={project.name}
       description={project.summary}
     >
-      <div className="rounded-2xl border border-border bg-card p-6">
-        <h2 className="text-base font-semibold uppercase tracking-[0.15em] text-secondary">
+      <div className="glass-card rounded-2xl border p-6">
+        <h2 className="text-base font-semibold uppercase tracking-[0.15em] text-primary dark:text-accent">
           What Project Is
         </h2>
-        <p className="mt-4 text-sm leading-6 text-muted">{project.whatProjectIs}</p>
+        <p className="mt-4 text-sm leading-6 text-muted dark:text-foreground/85">
+          {project.whatProjectIs}
+        </p>
       </div>
 
-      <div className="mt-6 rounded-2xl border border-border bg-card p-6">
-        <h2 className="text-base font-semibold uppercase tracking-[0.15em] text-secondary">
+      <div className="glass-card mt-6 rounded-2xl border p-6">
+        <h2 className="text-base font-semibold uppercase tracking-[0.15em] text-primary dark:text-accent">
           Current Work
         </h2>
-        <p className="mt-4 text-sm leading-6 text-muted">{project.currentWork}</p>
+        <p className="mt-4 text-sm leading-6 text-muted dark:text-foreground/85">
+          {project.currentWork}
+        </p>
       </div>
 
       {project.focus && project.focus.length > 0 ? (
-        <div className="mt-6 rounded-2xl border border-border bg-card p-6">
-          <h2 className="text-base font-semibold uppercase tracking-[0.15em] text-secondary">
+        <div className="glass-card mt-6 rounded-2xl border p-6">
+          <h2 className="text-base font-semibold uppercase tracking-[0.15em] text-primary dark:text-accent">
             Focus
           </h2>
-          <ul className="mt-4 space-y-3 text-sm leading-6 text-muted">
+          <ul className="mt-4 space-y-3 text-sm leading-6 text-muted dark:text-foreground/85">
             {project.focus.map((item) => (
               <li key={item}>• {item}</li>
             ))}
