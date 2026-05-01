@@ -4,6 +4,8 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { navLinks } from "@/lib/site-data";
 
 export function SiteHeader() {
+  const applyNowLink = { href: "/internships", label: "Apply Now" };
+
   return (
     <header className="glass-nav sticky top-0 z-50 border-b">
       <div className="mx-auto w-full max-w-6xl px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
@@ -38,6 +40,12 @@ export function SiteHeader() {
                   {link.label}
                 </Link>
               ))}
+              <Link
+                href={applyNowLink.href}
+                className="inline-flex min-h-10 items-center rounded-full border border-primary/50 bg-primary/10 px-4 font-semibold text-foreground transition hover:border-primary hover:bg-primary/20"
+              >
+                {applyNowLink.label}
+              </Link>
             </nav>
             <ThemeToggle />
           </div>
@@ -52,6 +60,12 @@ export function SiteHeader() {
               {link.label}
             </Link>
           ))}
+          <Link
+            href={applyNowLink.href}
+            className="inline-flex min-h-10 items-center whitespace-nowrap rounded-full border border-primary/50 bg-primary/10 px-3 font-semibold text-foreground transition hover:border-primary hover:bg-primary/20"
+          >
+            {applyNowLink.label}
+          </Link>
         </nav>
       </div>
     </header>

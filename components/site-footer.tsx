@@ -1,6 +1,9 @@
 import Link from "next/link";
+import { projects } from "@/lib/site-data";
 
 export function SiteFooter() {
+  const featuredProjects = projects.slice(0, 4);
+
   return (
     <footer className="mt-auto border-t border-border/80 bg-card/60">
       <div className="mx-auto grid w-full max-w-6xl gap-6 px-4 py-7 sm:px-6 md:grid-cols-2 lg:grid-cols-3 lg:px-8">
@@ -9,51 +12,36 @@ export function SiteFooter() {
             FloLabs International
           </p>
           <p className="mt-3 text-sm text-muted break-words">
-            A FloLabs Innovations Group Company
+            A{" "}
+            <a
+              href="https://www.flolabsinnovations.com/"
+              className="transition hover:text-foreground"
+              target="_blank"
+              rel="noreferrer"
+            >
+              FloLabs Innovations Group
+            </a>{" "}
+            Company
           </p>
         </div>
 
         <div>
-          <p className="text-sm font-semibold uppercase tracking-wide text-foreground">
+          <Link
+            href="/projects"
+            className="inline-flex min-h-8 items-center text-sm font-semibold uppercase tracking-wide text-foreground transition hover:text-foreground/80"
+          >
             Our Projects
-          </p>
+          </Link>
           <div className="mt-2 space-y-1 text-sm">
-            <Link
-              href="/projects/caipo"
-              className="flex min-h-8 w-full items-center text-muted transition hover:text-foreground"
-            >
-              CAIPO
-            </Link>
-            <Link
-              href="/projects"
-              className="flex min-h-8 w-full items-center text-muted transition hover:text-foreground"
-            >
-              MoodChanger
-            </Link>
-            <Link
-              href="/projects"
-              className="flex min-h-8 w-full items-center text-muted transition hover:text-foreground"
-            >
-              MoodChanger for Pets
-            </Link>
-            <Link
-              href="/projects/flo-travel"
-              className="flex min-h-8 w-full items-center text-muted transition hover:text-foreground"
-            >
-              Flo Travel
-            </Link>
-            <Link
-              href="/about"
-              className="flex min-h-8 w-full items-center text-muted transition hover:text-foreground"
-            >
-              FloLabs Innovations Group
-            </Link>
-            <Link
-              href="/projects/flo-studios"
-              className="flex min-h-8 w-full items-center text-muted transition hover:text-foreground"
-            >
-              FloStudios
-            </Link>
+            {featuredProjects.map((project) => (
+              <Link
+                key={project.slug}
+                href={`/projects/${project.slug}`}
+                className="flex min-h-8 w-full items-center text-muted transition hover:text-foreground"
+              >
+                {project.name}
+              </Link>
+            ))}
           </div>
         </div>
 

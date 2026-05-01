@@ -23,7 +23,7 @@ export function SectionShell({
         {hasHeader ? (
           <div className="mb-8 max-w-3xl">
             {eyebrow ? (
-              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-primary [font-family:var(--font-geist-sans)]">
+              <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-primary sm:text-base [font-family:var(--font-geist-sans)]">
                 {eyebrow}
               </p>
             ) : null}

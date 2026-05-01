@@ -13,7 +13,6 @@ export const navLinks = [
   { href: "/about", label: "About" },
   { href: "/projects", label: "Projects" },
   { href: "/blogs", label: "Blogs" },
-  { href: "/internships", label: "Internships" },
 ];
 
 export const projects: Project[] = [
@@ -79,6 +78,18 @@ export const projects: Project[] = [
       "We are building smarter itinerary planning and travel assistance features to make end-to-end trip coordination easier and more personalized.",
     siteUrl: "https://www.flomadtravel.com/",
     logoPath: "/projects/icons/FloLabs_logo%20Flomad%20Travel.svg",
+  },
+  {
+    slug: "bootcamp-university",
+    name: "Bootcamp University",
+    summary:
+      "A cooperative education initiative that helps learners move from foundational training to paid, real-world tech project experience.",
+    whatProjectIs:
+      "Bootcamp University is a tiered learning program that supports students from beginner foundations to professional-level project delivery through mentorship, hands-on work, and collaborative learning.",
+    currentWork:
+      "The team is expanding program pathways across web development, AI and machine learning, and robotics while growing internships and industry-connected opportunities for 2025 cohorts.",
+    siteUrl: "https://www.bootcampuniversity.org/",
+    logoPath: "/projects/icons/FloLabs_logo%20Bootcamp%20University.svg",
   },
   {
     slug: "tarrl",
@@ -233,7 +244,7 @@ export const methodology = [
   "Recorded Meetings",
   "Brainwriting Exercises",
   "Advanced AI Tools",
-  "Industry Experts",
+  "Collaborative Learning",
   "Hands-on Projects",
 ];
 
@@ -376,7 +387,7 @@ The future of AI and robotics includes more human-like machines, ethical AI, per
 Will AI replace humans in the workplace?
 AI will automate certain tasks, but it will also create new job roles focused on creativity, problem-solving, and AI system management. The focus will shift to human-AI collaboration.
 How can students start learning about robotics and AI?
-Begin with online courses, build beginner-friendly robotics kits, and explore internships or [bootcamps](https://www.bootcampuniversity.org/) that combine experiential learning and mentorship.
+Begin with online courses, build beginner-friendly robotics kits, and explore internships or [bootcamps](https://www.bootcampuniversity.org/) that combine experiential learning and collaborative learning-by-doing.
 What industries will be most impacted by AI and robotics?
 Healthcare, manufacturing, education, transportation, and customer service will undergo major transformations due to AI and robotics integration.
 
@@ -659,7 +670,7 @@ An AI internship provides a chance to go beyond theoretical situations and under
 Handling Messy Data & Integration: You will learn how to deal with messy data and integrate AI solutions with existing technology in a company.
 Navigating Ethical & Practical Considerations: You will work through issues such as bias and privacy. You will also learn how to explain technical concepts to non-technical stakeholders.
 3. Develop a Professional Network
-Meet AI engineers, data scientists, and researchers at all levels of experience who could become valuable [mentors, collaborators, and future references](https://www.forbes.com/councils/forbescoachescouncil/2022/11/30/14-steps-to-take-to-build-a-strong-professional-network/).
+Meet AI engineers, data scientists, and researchers at all levels of experience who can become valuable [collaborators, peers, and future references](https://www.forbes.com/councils/forbescoachescouncil/2022/11/30/14-steps-to-take-to-build-a-strong-professional-network/).
 
 Types of AI Internship
 AI internships are available in different areas like machine learning, data science, computer vision, and more. Interns should research these options and choose what fits their interests.
@@ -717,8 +728,8 @@ Beyond the immediate experience, an AI internship offers long-term benefits.
 Completing an internship boosts your credibility and competitiveness in a rapidly growing field. Employers prefer candidates with internships, which often lead to higher starting salaries compared to entry-level roles without an internship.
 2. Strong Portfolio
 Internship projects strengthen your portfolio, showcase your skills, and help you land interviews and job opportunities.
-3. Mentorship and Guidance
-Learning with seasoned professionals increases your chances of gaining both practical and industry-specific knowledge. During the internship, you can also connect with professionals to get insights into current trends.
+3. Collaborative Learning and Peer Support
+Learning alongside your team increases your chances of gaining practical and industry-specific knowledge. During the internship, you can exchange ideas with peers and collaborators to stay current with evolving trends.
 
 Keys To Successful AI Internship
 1. Learn Continuously
@@ -736,7 +747,7 @@ Obstacle: There is a lot of content in terms of AI tools, frameworks, and concep
 How to Overcome: Focus on fundamentals, ask questions, and set time to watch tutorials or read internal documentation.
 2. Unclear Expectations
 Obstacle: You may not always have crystal clear instructions or goals for a specific task.
-How to Overcome: Share regular updates with your mentor or supervisor and clarify deliverables early.
+How to Overcome: Share regular updates with your team and project leads, and clarify deliverables early.
 3. Time Management
 Obstacle: You may be balancing multiple tasks, deadlines, and study.
 How to Overcome: Prioritize tasks, break them down, and use tools like calendars and task trackers.

@@ -7,21 +7,45 @@ export default function Home() {
 
   return (
     <>
-      <SectionShell
-        id="home"
-        eyebrow="FloLabs International"
-        title="Advanced AI and Robotics Program"
-      >
-        <h2 className="text-2xl font-bold tracking-tight text-foreground sm:text-4xl">
-          Get Recruited Today
-        </h2>
-        <p className="mt-5 max-w-4xl text-base leading-7 text-muted">
-          Join the FloLabs family and kickstart your career in AI and robotic
-          technologies. We are on a mission to bring the world together with the
-          latest trends in AI and robotics. We are looking for individuals who
-          are hungry for more growth in their experience and knowledge. Gain the
-          experience you desire by applying with us on the programs page.
-        </p>
+      <section id="home" className="relative min-h-[58vh] overflow-hidden border-b border-border/70">
+        <div
+          aria-hidden
+          className="absolute inset-0 bg-[url('/window.svg')] bg-cover bg-center bg-no-repeat"
+        />
+        <div aria-hidden className="absolute inset-0 bg-black/45" />
+        <div className="relative mx-auto flex min-h-[58vh] w-full max-w-6xl items-center px-4 py-20 sm:px-6 lg:px-8">
+          <div className="max-w-3xl">
+            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
+              FloLabs International
+            </h1>
+            <p className="mt-4 text-base font-medium leading-7 text-white/90 sm:text-xl">
+              Advanced AI and Robotics Program
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <SectionShell>
+        <div className="glass-card overflow-hidden rounded-xl border border-primary/60 md:flex md:items-stretch">
+          <div className="flex min-h-[190px] items-center justify-center p-6 sm:p-8 md:basis-[320px] md:shrink-0">
+            <h2 className="text-center text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              Get Recruited Today
+            </h2>
+          </div>
+          <div
+            aria-hidden
+            className="mx-6 h-px bg-primary/70 md:mx-0 md:my-6 md:h-auto md:w-px"
+          />
+          <div className="flex items-center p-5 sm:p-6 md:flex-1">
+            <p className="text-base leading-7 text-muted">
+              Join the FloLabs family and kickstart your career in AI and robotic
+              technologies. We are on a mission to bring the world together with the
+              latest trends in AI and robotics. We are looking for individuals who
+              are hungry for more growth in their experience and knowledge. Gain the
+              experience you desire by applying with us on the programs page.
+            </p>
+          </div>
+        </div>
       </SectionShell>
 
       <SectionShell
@@ -199,11 +223,11 @@ export default function Home() {
           </article>
           <article className="glass-card rounded-xl border p-4">
             <h3 className="text-base font-semibold text-foreground">
-              Industry Experts
+              Collaborative Learning
             </h3>
             <p className="mt-2 text-sm leading-6 text-muted">
-              Mentorship and guidance is provided through a variety of
-              participants, advisors, and partners.
+              We teach each other through teamwork, shared practice, and
+              learning by doing together on real projects.
             </p>
           </article>
           <article className="glass-card rounded-xl border p-4">
