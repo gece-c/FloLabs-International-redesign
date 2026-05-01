@@ -26,6 +26,16 @@ export default async function ProjectDetailPage({ params }: Props) {
       description={project.summary}
     >
       <div className="glass-card rounded-2xl border p-6">
+        {project.logoPath ? (
+          <div className="mb-4 h-16 w-full">
+            <img
+              src={project.logoPath}
+              alt={`${project.name} logo`}
+              className="block !h-full !w-full object-contain object-left opacity-85"
+              loading="lazy"
+            />
+          </div>
+        ) : null}
         <h2 className="text-base font-semibold uppercase tracking-[0.15em] text-primary dark:text-accent">
           What Project Is
         </h2>

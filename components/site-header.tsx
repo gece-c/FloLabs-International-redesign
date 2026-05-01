@@ -5,7 +5,7 @@ import { navLinks } from "@/lib/site-data";
 
 export function SiteHeader() {
   return (
-    <header className="sticky top-0 z-50 border-b border-border/80 bg-background/90 backdrop-blur">
+    <header className="glass-nav sticky top-0 z-50 border-b">
       <div className="mx-auto w-full max-w-6xl px-4 py-3 sm:px-6 sm:py-4 lg:px-8">
         <div className="flex items-center justify-between gap-3 sm:gap-6">
           <Link
@@ -47,7 +47,7 @@ export function SiteHeader() {
             <Link
               key={link.href}
               href={link.href}
-              className="inline-flex min-h-10 items-center whitespace-nowrap rounded-full px-3 text-muted transition hover:bg-card hover:text-foreground"
+              className="inline-flex min-h-10 items-center whitespace-nowrap rounded-full px-3 text-muted transition hover:bg-background/55 hover:text-foreground"
             >
               {link.label}
             </Link>

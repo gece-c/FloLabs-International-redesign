@@ -28,13 +28,13 @@ export function SiteFooter() {
               href="/projects"
               className="flex min-h-8 w-full items-center text-muted transition hover:text-foreground"
             >
-              Moodchanger.ai
+              MoodChanger
             </Link>
             <Link
               href="/projects"
               className="flex min-h-8 w-full items-center text-muted transition hover:text-foreground"
             >
-              Moodchanger for Pets
+              MoodChanger for Pets
             </Link>
             <Link
               href="/projects/flo-travel"
@@ -52,7 +52,7 @@ export function SiteFooter() {
               href="/projects/flo-studios"
               className="flex min-h-8 w-full items-center text-muted transition hover:text-foreground"
             >
-              Flo Studios
+              FloStudios
             </Link>
           </div>
         </div>
@@ -78,9 +78,6 @@ export function SiteFooter() {
             LinkedIn
           </a>
         </div>
-      </div>
-      <div className="border-t border-border/80 px-4 py-4 text-center text-xs text-muted sm:px-6 lg:px-8">
-        © 2026 FloLabs Innovations Group. All rights reserved.
       </div>
     </footer>
   );

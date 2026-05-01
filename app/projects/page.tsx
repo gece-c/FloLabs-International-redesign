@@ -15,6 +15,16 @@ export default function ProjectsPage() {
             key={project.slug}
             className="glass-card rounded-2xl border p-6"
           >
+            {project.logoPath ? (
+              <div className="mb-4 h-16 w-full">
+                <img
+                  src={project.logoPath}
+                  alt={`${project.name} logo`}
+                  className="block !h-full !w-full object-contain object-left opacity-85"
+                  loading="lazy"
+                />
+              </div>
+            ) : null}
             <h2 className="text-xl font-semibold text-foreground">
               {project.name}
             </h2>

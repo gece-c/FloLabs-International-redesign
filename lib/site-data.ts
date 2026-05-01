@@ -6,6 +6,7 @@ export type Project = {
   currentWork: string;
   focus?: string[];
   siteUrl?: string;
+  logoPath?: string;
 };
 
 export const navLinks = [
@@ -31,6 +32,7 @@ export const projects: Project[] = [
       "Entrepreneurial Spirit: MoodChanger embodies startup culture by launching innovative projects and empowering creators to bring ideas to life.",
     ],
     siteUrl: "https://www.moodchanger.ai/",
+    logoPath: "/projects/icons/FloLabs_logo%20MoodChanger.svg",
   },
   {
     slug: "caipo",
@@ -47,6 +49,7 @@ export const projects: Project[] = [
       "Entrepreneurial Spirit: CAIPO embodies startup culture by launching innovative projects and empowering creators to bring ideas to life.",
     ],
     siteUrl: "https://www.caipo.ai/",
+    logoPath: "/projects/icons/FloLabs_logo%20CAIPO.svg",
   },
   {
     slug: "flo-studios",
@@ -63,6 +66,7 @@ export const projects: Project[] = [
       "Entrepreneurial Spirit: FloStudios embodies startup culture by launching innovative projects and empowering creators to bring ideas to life.",
     ],
     siteUrl: "https://www.flostudios.ai/",
+    logoPath: "/projects/icons/FloLabs_logo%20FloStudios.svg",
   },
   {
     slug: "flo-travel",
@@ -74,6 +78,7 @@ export const projects: Project[] = [
     currentWork:
       "We are building smarter itinerary planning and travel assistance features to make end-to-end trip coordination easier and more personalized.",
     siteUrl: "https://www.flomadtravel.com/",
+    logoPath: "/projects/icons/FloLabs_logo%20Flomad%20Travel.svg",
   },
   {
     slug: "tarrl",
@@ -85,6 +90,7 @@ export const projects: Project[] = [
     currentWork:
       "We are redesigning the site to reflect ongoing changes at FloLabs.",
     siteUrl: "https://www.tarrl.org/",
+    logoPath: "/projects/icons/FloLabs_logo%20TARRL.svg",
   },
   {
     slug: "flolabs-innovations-group",
@@ -96,6 +102,7 @@ export const projects: Project[] = [
     currentWork:
       "We are redesigning the website to better highlight FloLabs' mission, active projects, and collaboration or internship opportunities.",
     siteUrl: "https://www.flolabsinnovations.com/",
+    logoPath: "/projects/icons/FloLabs_logo%20black%20circle%20background.svg",
   },
   {
     slug: "moodchanger-for-pets",
@@ -112,6 +119,7 @@ export const projects: Project[] = [
       "Entrepreneurial Spirit: MoodChanger for Pets embodies startup culture by launching innovative projects and empowering creators to bring ideas to life.",
     ],
     siteUrl: "https://www.canva.com/design/DAGYja1TUd4/0uXWmOksp8B2tV22841r9g/view",
+    logoPath: "/projects/icons/FloLabs_logo%20MoodChanger%20for%20Pets.svg",
   },
   {
     slug: "humanoid-robots",
@@ -128,6 +136,7 @@ export const projects: Project[] = [
       "Entrepreneurial Spirit: This initiative reflects startup culture by launching new robotics ventures and empowering builders and operators.",
     ],
     siteUrl: "https://www.robocollective.ai/",
+    logoPath: "/projects/icons/FloLabs_logo%20RoboCollective.svg",
   },
   {
     slug: "hephaestus-international",
@@ -138,6 +147,8 @@ export const projects: Project[] = [
       "Hephaestus International is an experiential learning initiative dedicated to innovation, education, and advanced technology development.",
     currentWork:
       "We are expanding our experiential learning pathways, practical innovation programs, and collaborative opportunities across AI, robotics, and emerging technologies.",
+    siteUrl: "https://hephaestus.international/",
+    logoPath: "/projects/icons/FloLabs_logo%20Hephaestus.svg",
   },
   {
     slug: "flolabs-international",
@@ -149,16 +160,18 @@ export const projects: Project[] = [
     currentWork:
       "We are improving the platform experience to better surface programs, project highlights, and pathways for internships and collaboration.",
     siteUrl: "https://www.flolabs.international/",
+    logoPath: "/projects/icons/FloLabs_logo%20FloLabs%20International.svg",
   },
   {
     slug: "flo-brain",
-    name: "Flo Brain",
+    name: "FloBrain",
     summary:
       "An AI-native initiative focused on knowledge workflows, intelligent assistants, and practical team productivity systems.",
     whatProjectIs:
       "Flo Brain is an AI-native initiative that builds practical systems for knowledge management, intelligent assistants, and team productivity.",
     currentWork:
       "We are developing workflow automations, assistant experiences, and internal tooling that help teams move from ideas to execution faster.",
+    logoPath: "/projects/icons/FloLabs_logo%20FloBrain.svg",
   },
   {
     slug: "connecting-the-dots",
@@ -169,6 +182,31 @@ export const projects: Project[] = [
       "Connecting the Dots is a cross-functional initiative designed to align ideas, people, and delivery into coherent, actionable programs.",
     currentWork:
       "We are building collaborative frameworks and communication systems that reduce friction between teams and improve end-to-end project execution.",
+    logoPath: "/projects/icons/FloLabs_logo%20Connecting%20The%20Dots.svg",
+  },
+  {
+    slug: "legal-ethics-ventures-institute",
+    name: "Legal & Ethics Ventures Institute",
+    summary:
+      "A remote-first, hands-on institute for legal, ethics, and AI venture projects with real-world execution.",
+    whatProjectIs:
+      "Legal & Ethics Ventures Institute is a venture-style experiential platform where students, career changers, and innovators work on practical legal and ethics initiatives across AI-focused projects.",
+    currentWork:
+      "The team is growing active streams across legal research, compliance, ethics frameworks, and AI-enabled legal tooling while onboarding new 2026 participants.",
+    siteUrl: "https://www.legalethicsventuresinstitute.com/",
+    logoPath: "/projects/icons/FloLabs_logo%20Legal.svg",
+  },
+  {
+    slug: "space-ventures-institute",
+    name: "Space Ventures Institute",
+    summary:
+      "A remote-first experiential venture institute connecting talent to real space economy projects.",
+    whatProjectIs:
+      "Space Ventures Institute is a startup-powered venture studio and experiential learning institute focused on practical participation in space-related products, operations, and innovation streams.",
+    currentWork:
+      "Current focus areas include CAIPO Space Buddy, MoodChanger for space wellbeing, space travel marketplace initiatives, robotics programs, and media or grant activities.",
+    siteUrl: "https://www.spaceventuresinstitute.com/",
+    logoPath: "/projects/icons/FloLabs_logo%20Space.svg",
   },
 ];
 
