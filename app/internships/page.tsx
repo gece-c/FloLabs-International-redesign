@@ -1,41 +1,36 @@
-import { SectionShell } from "@/components/section-shell";
+import Link from "next/link";
+import { opportunityPages } from "@/lib/site-data";
 
-export default function InternshipsPage() {
+export default function OpportunitiesPage() {
   return (
-    <>
-      <SectionShell
-        eyebrow="Internships"
-        title="Get Recruited Today"
-        description="Join the FloLabs family and kickstart your career in AI and robotic technologies."
-      >
-        <p className="max-w-4xl text-base leading-7 text-muted">
-          We are looking for individuals who are hungry for more growth in
-          their experience and knowledge. Gain the experience you desire by
-          applying with us on the programs page.
+    <div className="mx-auto w-full max-w-6xl space-y-10 px-4 py-12 sm:px-6 lg:px-8">
+      <section className="text-center">
+        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl lg:text-5xl">
+          Opportunities
+        </h1>
+        <p className="mx-auto mt-4 max-w-3xl text-base leading-7 text-muted sm:text-lg">
+          Opportunities are currently focused on internship-based pathways across technical and
+          non-technical fields.
         </p>
-      </SectionShell>
+      </section>
 
-      <SectionShell
-        eyebrow="Benefits"
-        title="What You Get"
-        description="A collaborative and practical learning experience."
-      >
-        <div className="grid gap-5 md:grid-cols-2">
-          {[
-            "Flexibility: Work at your own pace and on your own schedule.",
-            "Affordability: Access meaningful learning opportunities without breaking the bank.",
-            "Opportunities: Focused growth in AI and robotics technologies.",
-            "Expertise: Learn the latest technologies while solving real-world problems.",
-          ].map((benefit) => (
-            <article
-              key={benefit}
-              className="glass-card rounded-2xl border p-5 text-sm leading-6 text-muted"
+      <section aria-label="Opportunity categories" className="grid gap-4 md:grid-cols-2">
+        {opportunityPages.map((item) => (
+          <article
+            key={item.slug}
+            className="glass-card flex h-full flex-col rounded-2xl border p-5 sm:p-6"
+          >
+            <h2 className="text-xl font-semibold text-foreground sm:text-2xl">{item.title}</h2>
+            <p className="mt-3 flex-1 text-sm leading-6 text-muted sm:text-base">{item.summary}</p>
+            <Link
+              href={`/internships/${item.slug}`}
+              className="mt-6 inline-flex min-h-11 items-center rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary"
             >
-              {benefit}
-            </article>
-          ))}
-        </div>
-      </SectionShell>
-    </>
+              {item.ctaLabel}
+            </Link>
+          </article>
+        ))}
+      </section>
+    </div>
   );
 }

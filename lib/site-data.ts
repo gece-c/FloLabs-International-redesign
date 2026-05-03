@@ -15,6 +15,45 @@ export const navLinks = [
   { href: "/blogs", label: "Blogs" },
 ];
 
+/** Landing cards on `/internships` — replace or source from a CMS when ready. */
+export type OpportunityPage = {
+  slug: string;
+  title: string;
+  summary: string;
+  ctaLabel: string;
+};
+
+export const opportunityPages: OpportunityPage[] = [
+  {
+    slug: "internships",
+    title: "Internships",
+    summary:
+      "Internship-based pathways across engineering, science, design, marketing, QA, business, and operations.",
+    ctaLabel: "Browse internship roles",
+  },
+];
+
+/**
+ * Individual listings shown at `/internships/internships` and detail at `/internships/[slug]`.
+ * For Strapi or another API: map API records into this shape in `lib/strapi` (or similar) instead.
+ */
+export type InternshipPosition = {
+  slug: string;
+  title: string;
+  status: "Open" | "Closed" | "Closing Soon" | "Pending" | "Filled";
+  company?: string;
+  location?: string;
+  duration?: string;
+  schedule?: string;
+  summary?: string;
+  /** Long-form body for the detail page (e.g. Strapi rich text or markdown). */
+  description?: string;
+  /** HubSpot embedded form ID when `components/hubspot-form` exists. */
+  hubspotFormId?: string;
+};
+
+export const internshipPositions: InternshipPosition[] = [];
+
 export const projects: Project[] = [
   {
     slug: "moodchanger",
