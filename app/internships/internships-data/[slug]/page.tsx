@@ -125,7 +125,7 @@ export default async function InternshipDataDetailPage(props: PageProps) {
     <div className="mx-auto w-full max-w-6xl space-y-10 px-4 py-12 sm:px-6 lg:px-8">
       <p className="mb-2">
         <Link
-          href="/internships/internships"
+          href="/internships"
           className="inline-flex min-h-10 items-center text-sm font-semibold text-muted transition hover:text-primary"
         >
           ← All internship positions

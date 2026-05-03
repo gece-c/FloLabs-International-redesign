@@ -15,27 +15,8 @@ export const navLinks = [
   { href: "/blogs", label: "Blogs" },
 ];
 
-/** Landing cards on `/internships` — replace or source from a CMS when ready. */
-export type OpportunityPage = {
-  slug: string;
-  title: string;
-  summary: string;
-  ctaLabel: string;
-};
-
-export const opportunityPages: OpportunityPage[] = [
-  {
-    slug: "internships",
-    title: "Internships",
-    summary:
-      "Internship-based pathways across engineering, science, design, marketing, QA, business, and operations.",
-    ctaLabel: "Browse internship roles",
-  },
-];
-
 /**
- * Individual listings shown at `/internships/internships` and detail at `/internships/[slug]`.
- * For Strapi or another API: map API records into this shape in `lib/strapi` (or similar) instead.
+ * Local fallback when Strapi is empty — listings at `/internships`, detail at `/internships/[slug]`.
  */
 export type InternshipPosition = {
   slug: string;
