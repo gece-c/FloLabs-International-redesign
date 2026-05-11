@@ -92,9 +92,16 @@ body {
 }
 
 html {
+  scroll-behavior: smooth;
   scroll-padding-top: 6rem;
   width: 100%;
   overflow-x: clip;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 *,

@@ -1,246 +1,86 @@
-import Link from "next/link";
-import { SectionShell } from "@/components/section-shell";
-import { projects } from "@/lib/site-data";
+import { HomeScene } from "@/components/home-scene";
+import { methodology, projects, verticals } from "@/lib/site-data";
+
+const unsplash = (id: string) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&q=80&w=2400`;
 
 export default function Home() {
   const featuredProjects = projects.slice(0, 4);
+  const featuredNames = featuredProjects.map((p) => p.name).join(", ");
+  const verticalTitles = verticals.map((v) => v.title).join(", ");
+  const methodologyLine = methodology
+    .map((item) => item.toLowerCase())
+    .join(", ");
 
   return (
     <>
-      <section id="home" className="relative min-h-[58vh] overflow-hidden border-b border-border/70">
-        <div
-          aria-hidden
-          className="absolute inset-0 bg-[url('/window.svg')] bg-cover bg-center bg-no-repeat"
-        />
-        <div aria-hidden className="absolute inset-0 bg-black/45" />
-        <div className="relative mx-auto flex min-h-[58vh] w-full max-w-6xl items-center px-4 py-20 sm:px-6 lg:px-8">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl font-bold tracking-tight text-white sm:text-5xl lg:text-6xl">
-              FloLabs International
-            </h1>
-            <p className="mt-4 text-base font-medium leading-7 text-white/90 sm:text-xl">
-              Advanced AI and Robotics Program
-            </p>
-          </div>
-        </div>
-      </section>
+      <HomeScene
+        id="home"
+        headline="Advanced AI and robotics for the next generation"
+        description="FloLabs International is an incubator launching ambitious projects across AI and robotics—pairing experiential learning with real venture execution."
+        imageSrc={unsplash("photo-1451187580459-43490279c0fa")}
+        imageAlt="Earth at night from orbit, city lights and atmosphere visible"
+        cta={{ href: "/internships", label: "Start your journey" }}
+        priority
+      />
 
-      <SectionShell>
-        <div className="glass-card overflow-hidden rounded-xl border border-primary/60 md:flex md:items-stretch">
-          <div className="flex min-h-[190px] items-center justify-center p-6 sm:p-8 md:basis-[320px] md:shrink-0">
-            <h2 className="text-center text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Get Recruited Today
-            </h2>
-          </div>
-          <div
-            aria-hidden
-            className="mx-6 h-px bg-primary/70 md:mx-0 md:my-6 md:h-auto md:w-px"
-          />
-          <div className="flex items-center p-5 sm:p-6 md:flex-1">
-            <p className="text-base leading-7 text-muted">
-              Join the FloLabs family and kickstart your career in AI and robotic
-              technologies. We are on a mission to bring the world together with the
-              latest trends in AI and robotics. We are looking for individuals who
-              are hungry for more growth in their experience and knowledge. Gain the
-              experience you desire by applying with us on the programs page.
-            </p>
-          </div>
-        </div>
-      </SectionShell>
+      <HomeScene
+        id="recruited"
+        headline="Get recruited today"
+        description="Join the FloLabs family and grow through hands-on programs in AI and robotics. We look for curious builders who want real-world experience, mentorship, and momentum."
+        imageSrc={unsplash("photo-1522071820081-009f0129c71c")}
+        imageAlt="Team collaborating together at a table"
+        cta={{ href: "/internships", label: "Apply now" }}
+      />
 
-      <SectionShell
+      <HomeScene
         id="projects"
-        eyebrow="Our Projects"
-        title="Explore a few of our most exciting projects."
-      >
-        <div className="grid gap-5 sm:grid-cols-2">
-          {featuredProjects.map((project) => (
-            <article key={project.slug} className="glass-card rounded-2xl border p-5 sm:p-6">
-              <h3 className="text-xl font-semibold text-foreground sm:text-2xl">{project.name}</h3>
-              <p className="mt-3 text-sm leading-6 text-muted">{project.summary}</p>
-              <Link
-                href={`/projects/${project.slug}`}
-                className="mt-4 inline-flex min-h-10 items-center text-sm font-semibold text-accent hover:text-primary"
-              >
-                Learn More →
-              </Link>
-            </article>
-          ))}
-        </div>
+        headline="Explore our projects"
+        description={`From ${featuredNames} to a growing portfolio of ventures, we ship products, platforms, and research initiatives that connect learning to launch.`}
+        imageSrc={unsplash("photo-1460925895917-afdab827c52f")}
+        imageAlt="Laptop on a desk showing charts and analytics"
+        cta={{ href: "/projects", label: "View all projects" }}
+      />
 
-        <div className="mt-6 flex">
-          <Link
-            href="/projects"
-            className="inline-flex min-h-11 items-center rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary"
-          >
-            Explore All Projects
-          </Link>
-        </div>
-      </SectionShell>
+      <HomeScene
+        headline="Ambitious, innovative collaboration"
+        description="We offer experiential learning—immersive training with real projects, teamwork, and modern workflows. FloLabs Innovations Group incubates ideas through collaboration, brainstorming, and practical AI tooling."
+        imageSrc={unsplash("photo-1485827404703-89b55fcc595e")}
+        imageAlt="Robotic arm and technology workshop environment"
+        cta={{ href: "/about", label: "Learn more" }}
+      />
 
-      <SectionShell
-        eyebrow="Ambitious Innovative Projects"
-        title="Enjoy collaborating with other thoughtful professionals that are passionate about bringing a vision to life!"
-      >
-        <p className="text-base leading-7 text-muted">
-          We offer experiential learning, a unique and immersive educational
-          training program with hands-on, real world experience.
-        </p>
-        <p className="mt-4 text-base leading-7 text-muted">
-          FloLabs Innovations Group is an incubator launching innovative
-          projects in AI and Robotics. We enhance learning and project outcomes
-          through teamwork, idea sharing, and innovative methods like
-          brainstorming and LLM automation, preparing students with practical
-          skills.
-        </p>
-      </SectionShell>
+      <HomeScene
+        headline="Our verticals"
+        description={`We focus on four pillars—${verticalTitles}—so teams can go deep in education, healthcare, travel, and space-related innovation with clear outcomes.`}
+        imageSrc={unsplash("photo-1454165804606-c3d57bc86b40")}
+        imageAlt="Planning documents and laptop on a wooden desk"
+        cta={{ href: "/about", label: "About FloLabs" }}
+      />
 
-      <SectionShell
-        eyebrow="Our Verticals"
-        title="We focus on four main verticals in our expertise."
-      >
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <article className="glass-card rounded-2xl border p-5">
-            <h3 className="text-xl font-semibold text-foreground">Education</h3>
-            <p className="mt-3 text-sm leading-6 text-muted">
-              Experiential learning through cutting-edge programs and
-              internships that equip students with real-world skills to thrive
-              in a global and dynamic economy.
-            </p>
-          </article>
-          <article className="glass-card rounded-2xl border p-5">
-            <h3 className="text-xl font-semibold text-foreground">Healthcare</h3>
-            <p className="mt-3 text-sm leading-6 text-muted">
-              Empowering healthcare innovation with AI-driven insights,
-              advancing global well-being through smarter diagnostics and
-              personalized care solutions.
-            </p>
-          </article>
-          <article className="glass-card rounded-2xl border p-5">
-            <h3 className="text-xl font-semibold text-foreground">Travel</h3>
-            <p className="mt-3 text-sm leading-6 text-muted">
-              Revolutionizing travel with a personalized, AI-powered travel
-              platform and chatbot that creates unforgettable experiences
-              tailored to your unique journey.
-            </p>
-          </article>
-          <article className="glass-card rounded-2xl border p-5">
-            <h3 className="text-xl font-semibold text-foreground">Space</h3>
-            <p className="mt-3 text-sm leading-6 text-muted">
-              Expanding the boundaries of innovation with AI solutions for space
-              exploration, education, research, and sustainable development in
-              the space sector.
-            </p>
-          </article>
-        </div>
-      </SectionShell>
+      <HomeScene
+        headline="Long live learning"
+        description="We study the future of AI, robotics, and education—and we build while we learn. FloLabs helps you progress on your own path with practical skills and supportive collaboration."
+        imageSrc={unsplash("photo-1434030216411-0b793f4b4173")}
+        imageAlt="Open notebook and pen on a desk"
+        cta={{ href: "/blogs", label: "Read the latest" }}
+      />
 
-      <SectionShell eyebrow="Long Live Learning">
-        <p className="text-base leading-7 text-muted">
-          Learn about the latest trends in technology. We are learning about the
-          future of AI, robotics, education, and so much more. Every day is a
-          great day to learn and we want to continuously learn and we expand.
-        </p>
-        <p className="mt-4 text-base leading-7 text-muted">
-          FloLabs Innovations Group wants to prepare you for your own journey in
-          your career. We help you learn the way you want to learn so you can
-          achieve your goals of getting to the next level.
-        </p>
-      </SectionShell>
+      <HomeScene
+        headline="Built for flexibility and momentum"
+        description="Flexibility for busy schedules, affordable pathways, future-facing opportunities in AI and robotics, and expertise shared across teams—so learning stays practical and within reach."
+        imageSrc={unsplash("photo-1507679799987-c73779587ccf")}
+        imageAlt="Professional looking toward a bright horizon"
+        cta={{ href: "/internships", label: "See programs" }}
+      />
 
-      <SectionShell eyebrow="Our Benefits">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          <article className="glass-card rounded-2xl border p-5">
-            <h3 className="text-xl font-semibold text-foreground">Flexibility</h3>
-            <p className="mt-3 text-sm leading-6 text-muted">
-              We offer you the flexibility you need to complete your tasks. We
-              know you have a busy schedule and we offer you the ability to work
-              at your own pace on your own time.
-            </p>
-          </article>
-          <article className="glass-card rounded-2xl border p-5">
-            <h3 className="text-xl font-semibold text-foreground">
-              Affordability
-            </h3>
-            <p className="mt-3 text-sm leading-6 text-muted">
-              We can provide the learning experience needed for your success
-              without breaking the bank.
-            </p>
-          </article>
-          <article className="glass-card rounded-2xl border p-5">
-            <h3 className="text-xl font-semibold text-foreground">
-              Opportunities
-            </h3>
-            <p className="mt-3 text-sm leading-6 text-muted">
-              We focus on AI and robotic technologies because this is the future
-              for humanity. The opportunities here will lead you to greater
-              opportunities of the future. We want to see you succeed in
-              creating better technology for the future.
-            </p>
-          </article>
-          <article className="glass-card rounded-2xl border p-5">
-            <h3 className="text-xl font-semibold text-foreground">Expertise</h3>
-            <p className="mt-3 text-sm leading-6 text-muted">
-              Learn with us as we discover the latest trends in AI and robotics.
-              We want you to learn and know the best technologies available as
-              we improve the world around us technologically.
-            </p>
-          </article>
-        </div>
-      </SectionShell>
-
-      <SectionShell
-        eyebrow="HELPING PEOPLE LEARN BETTER."
-        title="Our methodology is to foster collaboration and creativity."
-      >
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          <article className="glass-card rounded-xl border p-4">
-            <h3 className="text-base font-semibold text-foreground">
-              Recorded Meetings
-            </h3>
-            <p className="mt-2 text-sm leading-6 text-muted">
-              We record and transcribe every meeting so you can easily review
-              information when necessary.
-            </p>
-          </article>
-          <article className="glass-card rounded-xl border p-4">
-            <h3 className="text-base font-semibold text-foreground">
-              Brainwriting Exercises
-            </h3>
-            <p className="mt-2 text-sm leading-6 text-muted">
-              Brain writing is an exercise to help the brain get into a creative
-              and productive state.
-            </p>
-          </article>
-          <article className="glass-card rounded-xl border p-4">
-            <h3 className="text-base font-semibold text-foreground">
-              Advanced AI Tools
-            </h3>
-            <p className="mt-2 text-sm leading-6 text-muted">
-              Language Learning Models (LLMs) help automate workflow,
-              brainstorm and advise work production.
-            </p>
-          </article>
-          <article className="glass-card rounded-xl border p-4">
-            <h3 className="text-base font-semibold text-foreground">
-              Collaborative Learning
-            </h3>
-            <p className="mt-2 text-sm leading-6 text-muted">
-              We teach each other through teamwork, shared practice, and
-              learning by doing together on real projects.
-            </p>
-          </article>
-          <article className="glass-card rounded-xl border p-4">
-            <h3 className="text-base font-semibold text-foreground">
-              Hands-on Projects
-            </h3>
-            <p className="mt-2 text-sm leading-6 text-muted">
-              We work on interesting AI projects that create a better future for
-              humanity.
-            </p>
-          </article>
-        </div>
-      </SectionShell>
+      <HomeScene
+        headline="Collaboration is our methodology"
+        description={`We foster creativity through ${methodologyLine}—so meetings become reusable knowledge, ideas move faster, and execution stays grounded in real builds.`}
+        imageSrc={unsplash("photo-1531482615713-2afd69097998")}
+        imageAlt="Team meeting with people discussing ideas"
+        cta={{ href: "/about", label: "Discover how we work" }}
+      />
     </>
   );
 }
