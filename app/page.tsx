@@ -1,11 +1,14 @@
+import { HomePageProjectsCarousel } from "@/components/home-page-projects-carousel";
 import { HomeScene } from "@/components/home-scene";
+import { HomeSceneCtaLink } from "@/components/home-scene-cta-link";
+import { ScrollReveal } from "@/components/scroll-reveal";
 import { methodology, projects, verticals } from "@/lib/site-data";
 
 const unsplash = (id: string) =>
   `https://images.unsplash.com/${id}?auto=format&fit=crop&q=80&w=2400`;
 
 export default function Home() {
-  const featuredProjects = projects.slice(0, 4);
+  const featuredProjects = projects.slice(0, 5);
   const featuredNames = featuredProjects.map((p) => p.name).join(", ");
   const verticalTitles = verticals.map((v) => v.title).join(", ");
   const methodologyLine = methodology
@@ -39,8 +42,14 @@ export default function Home() {
         description={`From ${featuredNames} to a growing portfolio of ventures, we ship products, platforms, and research initiatives that connect learning to launch.`}
         imageSrc={unsplash("photo-1460925895917-afdab827c52f")}
         imageAlt="Laptop on a desk showing charts and analytics"
-        cta={{ href: "/projects", label: "View all projects" }}
-      />
+      >
+        <ScrollReveal className="w-full" delay={140} threshold={0.08}>
+          <HomePageProjectsCarousel projects={featuredProjects} />
+          <div className="mt-9">
+            <HomeSceneCtaLink href="/projects" label="View all projects" />
+          </div>
+        </ScrollReveal>
+      </HomeScene>
 
       <HomeScene
         headline="Ambitious, innovative collaboration"

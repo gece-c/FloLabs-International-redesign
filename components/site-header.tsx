@@ -63,7 +63,7 @@ export function SiteHeader() {
 
           <Link
             href="/"
-            className="mx-auto inline-flex flex-col items-center gap-1 text-center [font-family:var(--font-display),var(--font-geist-sans),sans-serif]"
+            className="mx-auto inline-flex flex-col items-center gap-1 text-center [font-family:var(--font-inter),Arial,Helvetica,sans-serif]"
           >
             <Image
               src="/flolabs-logo.svg"
