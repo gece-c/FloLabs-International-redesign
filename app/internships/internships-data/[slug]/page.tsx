@@ -247,7 +247,7 @@ export default async function InternshipDataDetailPage(props: PageProps) {
 
         <div className="mt-8 rounded-xl border border-border bg-card p-5 sm:p-7">
           {internship.hubspotFormId ? (
-            <HubSpotForm formId={internship.hubspotFormId} />
+            <HubSpotForm key={internship.slug} formId={internship.hubspotFormId} />
           ) : (
             <p className="text-sm text-muted">The application form is not available yet.</p>
           )}

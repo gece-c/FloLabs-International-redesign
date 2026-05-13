@@ -1,98 +1,115 @@
 "use client";
 
-import { useEffect, useId } from "react";
+import { useEffect, useId, useState } from "react";
+
+/** Matches Bootcamp University default when `NEXT_PUBLIC_HUBSPOT_PORTAL_ID` is unset (Strapi form IDs from that portal). */
+const DEFAULT_PORTAL_ID = "45023159";
+
+type HubSpotFormProps = {
+  readonly formId: string;
+  readonly portalId?: string;
+  readonly region?: string;
+  readonly targetId?: string;
+};
 
 declare global {
   interface Window {
     hbspt?: {
       forms: {
-        create: (options: {
-          region: string;
+        create: (config: {
           portalId: string;
           formId: string;
+          region: string;
           target: string;
+          onFormReady?: () => void;
         }) => void;
       };
     };
   }
 }
 
-let hubspotScriptPromise: Promise<void> | null = null;
-
-function loadHubSpotScript(): Promise<void> {
-  if (typeof window === "undefined") return Promise.resolve();
-  if (window.hbspt) return Promise.resolve();
-  if (hubspotScriptPromise) return hubspotScriptPromise;
-
-  hubspotScriptPromise = new Promise((resolve, reject) => {
-    const src = "https://js.hsforms.net/forms/embed/v2.js";
-    const existing = document.querySelector<HTMLScriptElement>(`script[src="${src}"]`);
-    if (existing) {
-      existing.addEventListener("load", () => resolve(), { once: true });
-      existing.addEventListener("error", () => reject(new Error("HubSpot script")), {
-        once: true,
-      });
-      return;
-    }
-    const s = document.createElement("script");
-    s.src = src;
-    s.async = true;
-    s.onload = () => resolve();
-    s.onerror = () => reject(new Error("HubSpot script failed to load"));
-    document.body.appendChild(s);
-  });
-
-  return hubspotScriptPromise;
-}
-
-type HubSpotFormProps = {
-  formId: string;
-};
-
 /**
- * Embedded HubSpot form. Requires NEXT_PUBLIC_HUBSPOT_PORTAL_ID.
- * Optional: NEXT_PUBLIC_HUBSPOT_REGION (default "na1", use "eu1" when applicable).
+ * HubSpot embedded form (same flow as ceren-bootcamp: `forms/v2.js` + `hbspt.forms.create` into a target div;
+ * HubSpot injects the form iframe inside that node).
+ *
+ * Portal: `NEXT_PUBLIC_HUBSPOT_PORTAL_ID`, or optional `portalId` prop, or default `45023159`.
+ * Region: `NEXT_PUBLIC_HUBSPOT_REGION` or optional `region` prop (default `na1`).
  */
-export function HubSpotForm({ formId }: HubSpotFormProps) {
+export function HubSpotForm({
+  formId,
+  portalId: portalIdProp,
+  region: regionProp,
+  targetId: targetIdProp,
+}: HubSpotFormProps) {
   const reactId = useId().replace(/:/g, "");
-  const targetId = `hubspot-embed-${reactId}`;
-  const portalId = process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID?.trim();
-  const region = process.env.NEXT_PUBLIC_HUBSPOT_REGION?.trim() || "na1";
+  const targetId = targetIdProp ?? `hubspot-form-${reactId}`;
+  const portalId =
+    portalIdProp?.trim() ||
+    process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID?.trim() ||
+    DEFAULT_PORTAL_ID;
+  const region = regionProp?.trim() || process.env.NEXT_PUBLIC_HUBSPOT_REGION?.trim() || "na1";
+
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    if (!portalId || !formId) return;
-
+    let attempts = 0;
+    const maxAttempts = 50;
     let cancelled = false;
 
-    void (async () => {
-      try {
-        await loadHubSpotScript();
-        if (cancelled || !window.hbspt) return;
-        window.hbspt.forms.create({
-          region,
-          portalId,
-          formId,
-          target: `#${targetId}`,
-        });
-      } catch {
-        /* ignore — UI still shows container */
+    const loadScript = () => {
+      if (document.getElementById("hubspot-script")) return;
+      const script = document.createElement("script");
+      script.id = "hubspot-script";
+      script.src = "https://js.hsforms.net/forms/v2.js";
+      script.async = true;
+      document.body.appendChild(script);
+    };
+
+    const checkAndCreateForm = () => {
+      if (cancelled) return;
+      if (window.hbspt?.forms) {
+        try {
+          window.hbspt.forms.create({
+            portalId,
+            formId,
+            region,
+            target: `#${targetId}`,
+            onFormReady: () => {
+              if (!cancelled) setLoaded(true);
+            },
+          });
+        } catch (error) {
+          console.error("Error creating HubSpot form:", error);
+        }
+      } else if (attempts < maxAttempts) {
+        attempts += 1;
+        setTimeout(checkAndCreateForm, 100);
+      } else {
+        console.error("HubSpot script failed to load.");
       }
-    })();
+    };
+
+    loadScript();
+    const timer = setTimeout(checkAndCreateForm, 100);
 
     return () => {
       cancelled = true;
-      const el = document.getElementById(targetId);
-      if (el) el.innerHTML = "";
+      clearTimeout(timer);
+      const formContainer = document.getElementById(targetId);
+      if (formContainer) {
+        formContainer.innerHTML = "";
+      }
     };
-  }, [formId, portalId, region, targetId]);
+  }, [portalId, formId, region, targetId]);
 
-  if (!portalId) {
-    return (
-      <p className="text-sm text-muted">
-        Set NEXT_PUBLIC_HUBSPOT_PORTAL_ID to enable the application form.
-      </p>
-    );
-  }
-
-  return <div id={targetId} className="min-h-[12rem] w-full" />;
+  return (
+    <div className="hubspot-form-wrapper">
+      <div id={targetId} />
+      {!loaded ? (
+        <div className="py-8 text-center">
+          <p className="text-sm text-muted">Loading application form...</p>
+        </div>
+      ) : null}
+    </div>
+  );
 }
