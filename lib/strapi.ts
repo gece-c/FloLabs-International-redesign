@@ -3,10 +3,10 @@ import { internshipPositions } from "@/lib/site-data";
 /**
  * Strapi (or any REST source) → UI shape.
  * Configure:
- * - STRAPI_URL or NEXT_PUBLIC_STRAPI_URL — e.g. https://cms.example.com (no trailing slash)
- * - STRAPI_API_TOKEN — optional, for private collections (server-only; do not use NEXT_PUBLIC_)
- * - STRAPI_INTERNSHIP_COLLECTION — API path segment, default "internships"
- * - STRAPI_PAGE_SIZE — page size for list requests (default 100). Strapi’s default is 25,
+ * - STRAPI_URL or NEXT_PUBLIC_STRAPI_URL: e.g. https://cms.example.com (no trailing slash)
+ * - STRAPI_API_TOKEN: optional, for private collections (server-only; do not use NEXT_PUBLIC_)
+ * - STRAPI_INTERNSHIP_COLLECTION: API path segment, default "internships"
+ * - STRAPI_PAGE_SIZE: page size for list requests (default 100). Strapi’s default is 25,
  *   so without pagination you only see the first 25 entries.
  *
  * Expected fields per entry (Strapi “API name”): title, slug, status, location,

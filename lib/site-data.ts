@@ -16,7 +16,7 @@ export const navLinks = [
 ];
 
 /**
- * Local fallback when Strapi is empty — listings at `/internships`, detail at `/internships/[slug]`.
+ * Local fallback when Strapi is empty: listings at `/internships`, detail at `/internships/[slug]`.
  */
 export type InternshipPosition = {
   slug: string;
@@ -244,19 +244,19 @@ export const projects: Project[] = [
 export const verticals = [
   {
     title: "Education",
-    text: "Experiential learning through programs and internships that build practical, real-world skills.",
+    text: "Experiential learning through cutting-edge programs and internships that equip students with real-world skills to thrive in a global and dynamic economy.",
   },
   {
     title: "Healthcare",
-    text: "AI-driven insights that support smarter diagnostics and personalized care solutions.",
+    text: "Empowering healthcare innovation with AI-driven insights, advancing global well-being through smarter diagnostics and personalized care solutions.",
   },
   {
     title: "Travel",
-    text: "A personalized AI travel platform and chatbot for tailored travel experiences.",
+    text: "Revolutionizing travel with a personalized, AI-powered travel platform and chatbot that creates unforgettable experiences tailored to your unique journey.",
   },
   {
     title: "Space",
-    text: "AI solutions for space exploration, education, research, and sustainable development.",
+    text: "Expanding the boundaries of innovation with AI solutions for space exploration, education, research, and sustainable development in the space sector.",
   },
 ];
 

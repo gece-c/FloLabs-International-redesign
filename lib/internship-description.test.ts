@@ -67,7 +67,7 @@ Flat org.`;
 
 • First task
 
-— Second task`;
+- Second task`;
 
     const p = parseInternshipContent(raw);
     expect(p.responsibilities).toEqual(["First task", "Second task"]);

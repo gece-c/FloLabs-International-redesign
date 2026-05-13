@@ -3,6 +3,9 @@
 import { useTheme } from "next-themes";
 import { useSyncExternalStore } from "react";
 
+const toggleButtonClass =
+  "inline-flex size-11 items-center justify-center rounded-none text-muted transition hover:bg-muted/40 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme();
   const mounted = useSyncExternalStore(
@@ -15,7 +18,7 @@ export function ThemeToggle() {
     return (
       <button
         aria-label="Toggle theme"
-        className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-muted transition hover:border-primary hover:text-primary"
+        className={toggleButtonClass}
         type="button"
       >
         <svg
@@ -39,7 +42,7 @@ export function ThemeToggle() {
   return (
     <button
       aria-label={`Switch to ${isDark ? "light" : "dark"} mode`}
-      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border text-muted transition hover:border-primary hover:text-primary"
+      className={toggleButtonClass}
       onClick={() => setTheme(isDark ? "light" : "dark")}
       type="button"
     >

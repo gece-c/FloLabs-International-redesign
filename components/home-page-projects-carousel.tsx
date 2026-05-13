@@ -73,7 +73,7 @@ export function HomePageProjectsCarousel({ projects }: HomePageProjectsCarouselP
       role="region"
       aria-label="Featured projects"
     >
-      {/* Full-bleed width shell (no `relative` here — fade height must not include extra in-flow padding). */}
+      {/* Full-bleed width shell (no `relative` here: fade height must not include extra in-flow padding). */}
       <div className="-mx-4 w-[calc(100%+2rem)] sm:-mx-6 sm:w-[calc(100%+3rem)] lg:-mx-8 lg:w-[calc(100%+4rem)]">
         {/*
           Fades are positioned on this box; its only in-flow content is the padded track row,
