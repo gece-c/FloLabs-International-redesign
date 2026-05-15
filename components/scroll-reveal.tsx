@@ -9,13 +9,27 @@ type ScrollRevealProps = {
   delay?: number;
   /** How much of the element must be visible before it animates in (0–1). */
   threshold?: number;
+  /** Animation length in milliseconds. */
+  duration?: number;
+  /** Slide distance in pixels before reveal. */
+  translateY?: number;
+  /** IntersectionObserver rootMargin (e.g. trigger before fully in view). */
+  rootMargin?: string;
 };
+
+function isInViewport(node: HTMLElement) {
+  const rect = node.getBoundingClientRect();
+  return rect.top < window.innerHeight && rect.bottom > 0;
+}
 
 export function ScrollReveal({
   children,
   className = "",
   delay = 0,
   threshold = 0.15,
+  duration = 700,
+  translateY = 12,
+  rootMargin = "0px 0px -10% 0px",
 }: ScrollRevealProps) {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
@@ -32,6 +46,12 @@ export function ScrollReveal({
       return;
     }
 
+    // Already on screen on mount (avoids hidden flash + observer frame delay).
+    if (isInViewport(node)) {
+      setVisible(true);
+      return;
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -39,22 +59,25 @@ export function ScrollReveal({
           observer.disconnect();
         }
       },
-      { threshold, rootMargin: "0px 0px -10% 0px" },
+      { threshold, rootMargin },
     );
 
     observer.observe(node);
     return () => observer.disconnect();
-  }, [threshold]);
+  }, [threshold, rootMargin]);
 
   return (
     <div
       ref={ref}
-      style={{ transitionDelay: `${delay}ms` }}
-      className={`transition-[opacity,translate,transform] duration-700 ease-out motion-reduce:transition-none ${
-        visible
-          ? "translate-y-0 opacity-100"
-          : "translate-y-12 opacity-0 motion-reduce:translate-y-0 motion-reduce:opacity-100"
-      } ${className}`}
+      style={{
+        transitionProperty: "opacity, transform",
+        transitionTimingFunction: "cubic-bezier(0.22, 1, 0.36, 1)",
+        transitionDelay: `${delay}ms`,
+        transitionDuration: `${duration}ms`,
+        transform: visible ? "translateY(0)" : `translateY(${translateY}px)`,
+        opacity: visible ? 1 : 0,
+      }}
+      className={`motion-reduce:transition-none motion-reduce:opacity-100 ${className}`}
     >
       {children}
     </div>

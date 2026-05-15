@@ -1,6 +1,10 @@
-import Link from "next/link";
 import { notFound } from "next/navigation";
-import { SectionShell } from "@/components/section-shell";
+import { HomeScene } from "@/components/home-scene";
+import {
+  ProjectDetailExitLink,
+  ProjectPanel,
+  ProjectVisitSiteLink,
+} from "@/components/project-panel";
 import { projects } from "@/lib/site-data";
 
 type Props = {
@@ -20,73 +24,42 @@ export default async function ProjectDetailPage({ params }: Props) {
   }
 
   return (
-    <SectionShell
-      eyebrow="Project Detail"
-      title={project.name}
+    <HomeScene
+      id={`project-${project.slug}`}
+      background="gradient"
+      boldHeadline
+      headline={project.name}
       description={project.summary}
+      logoSrc={project.logoPath}
+      logoAlt={`${project.name} logo`}
+      centerContent
+      headerAside={<ProjectDetailExitLink href="/projects" />}
     >
-      <div className="glass-card rounded-2xl border p-6">
-        {project.logoPath ? (
-          <div className="mb-4 h-16 w-full">
-            <img
-              src={project.logoPath}
-              alt={`${project.name} logo`}
-              className="block !h-full !w-full object-contain object-left opacity-85"
-              loading="lazy"
-            />
+      <div className="flex w-full max-w-3xl flex-col gap-4 text-left md:gap-5">
+        <ProjectPanel title="What Project Is">
+          <p>{project.whatProjectIs}</p>
+        </ProjectPanel>
+
+        <ProjectPanel title="Current Work">
+          <p>{project.currentWork}</p>
+        </ProjectPanel>
+
+        {project.focus && project.focus.length > 0 ? (
+          <ProjectPanel title="Focus">
+            <ul className="space-y-3">
+              {project.focus.map((item) => (
+                <li key={item}>• {item}</li>
+              ))}
+            </ul>
+          </ProjectPanel>
+        ) : null}
+
+        {project.siteUrl ? (
+          <div className="pt-1">
+            <ProjectVisitSiteLink href={project.siteUrl} />
           </div>
         ) : null}
-        <h2 className="text-base font-semibold uppercase tracking-[0.15em] text-primary dark:text-accent">
-          What Project Is
-        </h2>
-        <p className="mt-4 text-sm leading-6 text-muted dark:text-foreground/85">
-          {project.whatProjectIs}
-        </p>
       </div>
-
-      <div className="glass-card mt-6 rounded-2xl border p-6">
-        <h2 className="text-base font-semibold uppercase tracking-[0.15em] text-primary dark:text-accent">
-          Current Work
-        </h2>
-        <p className="mt-4 text-sm leading-6 text-muted dark:text-foreground/85">
-          {project.currentWork}
-        </p>
-      </div>
-
-      {project.focus && project.focus.length > 0 ? (
-        <div className="glass-card mt-6 rounded-2xl border p-6">
-          <h2 className="text-base font-semibold uppercase tracking-[0.15em] text-primary dark:text-accent">
-            Focus
-          </h2>
-          <ul className="mt-4 space-y-3 text-sm leading-6 text-muted dark:text-foreground/85">
-            {project.focus.map((item) => (
-              <li key={item}>• {item}</li>
-            ))}
-          </ul>
-        </div>
-      ) : null}
-
-      {project.siteUrl ? (
-        <div className="mt-6">
-          <Link
-            href={project.siteUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex min-h-11 items-center rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary"
-          >
-            Visit Site →
-          </Link>
-        </div>
-      ) : null}
-
-      <div className="mt-8">
-        <Link
-          href="/projects"
-          className="inline-flex min-h-11 items-center rounded-full border border-border bg-card px-5 py-2.5 text-sm font-semibold text-foreground transition hover:border-primary hover:text-primary"
-        >
-          Back to projects
-        </Link>
-      </div>
-    </SectionShell>
+    </HomeScene>
   );
 }

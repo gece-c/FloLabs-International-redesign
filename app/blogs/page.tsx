@@ -1,45 +1,31 @@
-import Link from "next/link";
-import { SectionShell } from "@/components/section-shell";
+import { BlogCard } from "@/components/blog-card";
+import { HomeScene } from "@/components/home-scene";
+import { ScrollReveal } from "@/components/scroll-reveal";
 import { blogPosts } from "@/lib/site-data";
 
 export default function BlogsPage() {
   return (
-    <SectionShell
-      eyebrow="Blogs"
-      title="Explore Blogs on AI Breakthroughs, Internships & Emerging Tech Trends"
-      description="Welcome to FloLabs Innovations Group Blogs- your gateway to the world of AI innovation, hands-on internships, and cutting-edge tech trends. Whether you're a student, professional, or tech enthusiast, our blogs are here to inform, inspire, and power up your tech journey into the future of technology. Dive in and stay ahead!"
+    <HomeScene
+      id="blogs"
+      background="gradient"
+      boldHeadline
+      headline="Blogs"
+      description="Explore AI breakthroughs, internships, and emerging tech trends — written for students, professionals, and curious minds ready to stay ahead."
     >
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2 md:gap-5">
         {blogPosts.map((post) => (
-          <article
+          <ScrollReveal
             key={post.slug}
-            className="glass-card rounded-2xl border p-6"
+            className="h-full"
+            duration={300}
+            translateY={6}
+            threshold={0.01}
+            rootMargin="0px 0px 10% 0px"
           >
-            <h2 className="text-lg font-semibold text-foreground">{post.title}</h2>
-            <div className="mt-2 space-y-1 text-xs text-muted">
-              <p>{post.author}</p>
-              <p>{post.date}</p>
-            </div>
-            <div className="mt-3 flex flex-wrap gap-2">
-              {post.tags.map((tag) => (
-                <span
-                  key={`${post.slug}-${tag}`}
-                  className="rounded-full border border-border px-2 py-1 text-[11px] text-muted"
-                >
-                  {tag.replace(/^#/, "")}
-                </span>
-              ))}
-            </div>
-            <p className="mt-3 text-sm leading-6 text-muted">{post.excerpt}</p>
-            <Link
-              href={`/blogs/${post.slug}`}
-              className="mt-5 inline-flex min-h-10 items-center text-sm font-semibold text-accent hover:text-primary"
-            >
-              Read post →
-            </Link>
-          </article>
+            <BlogCard post={post} />
+          </ScrollReveal>
         ))}
       </div>
-    </SectionShell>
+    </HomeScene>
   );
 }

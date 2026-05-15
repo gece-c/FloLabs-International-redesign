@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --background: #f2f2f2;
   --foreground: #00080d;
@@ -50,6 +52,19 @@
   --primary: #0476d9;
   --secondary: #00349b;
   --accent: #d99c2b;
+}
+
+/* Projects page — viewport-sized paint layer (used with position: fixed in HomeScene) */
+@layer components {
+  .projects-scene-bg {
+    background-color: #c8d4e4;
+    background-image: linear-gradient(165deg, #e8eef5 0%, #c8d4e4 42%, #8fa8c4 100%);
+  }
+
+  .dark .projects-scene-bg {
+    background-color: #00080d;
+    background-image: linear-gradient(165deg, #00080d 0%, #061626 48%, #0a1a2e 100%);
+  }
 }
 
 .glass-card {
