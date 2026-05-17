@@ -1,9 +1,13 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 
-/** Shared with project listing cards — opaque panels on projects gradient pages. */
+/** Shared with project listing cards: opaque panels on projects gradient pages. */
 export const projectPanelShellClass =
   "border border-border/80 bg-card/62 shadow-sm dark:border-white/22 dark:bg-[#061626]/94 dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.06)]";
+
+/** Same look as project panels, lower opacity for copy over photo heroes. */
+export const projectPanelHeroShellClass =
+  "border border-border/55 bg-card/30 shadow-sm backdrop-blur-[6px] dark:border-white/16 dark:bg-[#061626]/45 dark:backdrop-blur-[6px] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.04)]";
 
 export const projectPanelHeadingClass =
   "text-base font-semibold uppercase leading-snug tracking-[0.2em] text-foreground dark:text-white [font-family:var(--font-inter),Arial,Helvetica,sans-serif]";
@@ -98,7 +102,7 @@ export function ProjectDetailExitLink({
   );
 }
 
-/** FloLabs logo navy — primary CTA on project detail pages. */
+/** FloLabs logo navy: primary CTA on project detail pages. */
 export const projectVisitSiteButtonClass =
   "inline-flex min-h-14 w-full items-center justify-center border border-[#00349b] bg-[#00349b] px-8 py-4 text-sm font-semibold uppercase tracking-[0.2em] text-white transition-colors duration-200 hover:border-[#002a7a] hover:bg-[#002a7a] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#00349b] sm:min-h-[3.75rem] sm:text-base";
 

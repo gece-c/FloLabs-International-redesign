@@ -10,7 +10,7 @@ export default function BlogsPage() {
       background="gradient"
       boldHeadline
       headline="Blogs"
-      description="Explore AI breakthroughs, internships, and emerging tech trends — written for students, professionals, and curious minds ready to stay ahead."
+      description="Explore AI breakthroughs, internships, and emerging tech trends, written for students, professionals, and curious minds ready to stay ahead."
     >
       <div className="grid gap-4 md:grid-cols-2 md:gap-5">
         {blogPosts.map((post) => (

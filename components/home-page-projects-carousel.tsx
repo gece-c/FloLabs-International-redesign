@@ -29,11 +29,11 @@ export function HomePageProjectsCarousel({ projects }: HomePageProjectsCarouselP
         <div className="home-projects-marquee-viewport relative isolate w-full">
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-10 bg-gradient-to-r from-black/85 via-black/40 to-transparent sm:w-12"
+            className="pointer-events-none absolute inset-y-0 left-0 z-[1] w-10 bg-gradient-to-r from-background/95 via-background/45 to-transparent sm:w-12 dark:from-black/85 dark:via-black/40"
           />
           <div
             aria-hidden
-            className="pointer-events-none absolute inset-y-0 right-0 z-[1] w-10 bg-gradient-to-l from-black/85 via-black/40 to-transparent sm:w-12"
+            className="pointer-events-none absolute inset-y-0 right-0 z-[1] w-10 bg-gradient-to-l from-background/95 via-background/45 to-transparent sm:w-12 dark:from-black/85 dark:via-black/40"
           />
           <div className="relative z-[2] px-4 sm:px-6 lg:px-8">
             <div className="home-projects-marquee-track min-h-[19.5rem] sm:min-h-[20.5rem]">

@@ -1,6 +1,7 @@
 import { HomePageProjectsCarousel } from "@/components/home-page-projects-carousel";
 import { HomeScene } from "@/components/home-scene";
 import { HomeSceneCtaLink } from "@/components/home-scene-cta-link";
+import { projectPanelHeroShellClass } from "@/components/project-panel";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { methodology, projects, verticals } from "@/lib/site-data";
 
@@ -66,12 +67,14 @@ export default function Home() {
             {verticals.map((v) => (
               <div
                 key={v.title}
-                className="rounded-lg border border-white/15 bg-black/40 p-4 shadow-lg shadow-black/25 backdrop-blur-sm sm:p-5"
+                className={`${projectPanelHeroShellClass} px-5 py-5 sm:px-6 sm:py-6`}
               >
-                <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-white sm:text-sm">
+                <h3 className="text-base font-semibold uppercase leading-snug tracking-[0.2em] text-foreground dark:text-white [font-family:var(--font-inter),Arial,Helvetica,sans-serif]">
                   {v.title}
                 </h3>
-                <p className="mt-2.5 text-sm leading-relaxed text-white/85 sm:text-base">{v.text}</p>
+                <p className="mt-3 text-sm font-normal leading-relaxed text-muted dark:text-white/82 [font-family:var(--font-inter),Arial,Helvetica,sans-serif]">
+                  {v.text}
+                </p>
               </div>
             ))}
           </div>

@@ -5,7 +5,7 @@ import type { Project } from "@/lib/site-data";
 const cardShellCarouselClass =
   "group flex h-full flex-col border border-white/22 bg-black/28 shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] backdrop-blur-md transition-[border-color,background-color] duration-300 hover:border-white/40 hover:bg-black/36 px-5 py-5 sm:px-6 sm:py-6";
 
-/** Opaque shell for listing — no backdrop-filter (scroll perf). */
+/** Opaque shell for listing: no backdrop-filter (scroll perf). */
 const cardShellGridClass = `group flex h-full flex-col ${projectPanelShellClass} transition-[border-color,background-color,box-shadow] duration-200 hover:border-primary/40 hover:bg-card/72 hover:shadow-md px-5 py-5 dark:hover:border-white/40 dark:hover:bg-[#081e32]/96 dark:hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.06)] sm:px-6 sm:py-6`;
 
 const layoutClass = {

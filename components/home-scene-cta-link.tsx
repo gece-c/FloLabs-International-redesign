@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { projectDetailLinkClass } from "@/components/project-panel";
 
 export function HomeSceneCtaLink({
   href,
@@ -10,7 +11,7 @@ export function HomeSceneCtaLink({
   return (
     <Link
       href={href}
-      className="inline-flex min-h-11 items-center border border-white/90 px-6 py-2.5 text-xs font-semibold uppercase tracking-[0.22em] text-white transition duration-200 hover:bg-white hover:text-black"
+      className={`${projectDetailLinkClass} min-h-11 px-6 py-2.5`}
     >
       <span>{label}</span>
       <span aria-hidden className="ml-2 translate-y-px text-sm font-normal">

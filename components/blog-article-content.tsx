@@ -44,9 +44,72 @@ export function BlogArticleContent({ post }: BlogArticleContentProps) {
   const faqQuestionRegex = /^(Q?\d+):\s+.+/i;
   const faqHeadingRegex = /^(FAQs?:\s+.+|Frequently Asked Questions(?:\s*\(FAQ\))?)$/i;
   const labelPrefixRegex = /^(Connection|Obstacle|How to Overcome|Author):\s+(.+)$/i;
+  const projectSubheadingRegex =
+    /^(Project Summary|Components Needed|Difficulty Level|Instructions|Tips & Insights)(?::.*)?$/i;
+  const sectionHeadingLeadRegex =
+    /^(?:Why|What|How|Where|When|Top \d+|Key Takeaway|Final Thoughts|Conclusion|Types of|Skills and|Benefits of|Obstacles and|Keys To|Internship Duration|Core Technical|Soft Skills|Real-World Applications|The Role of|Post AI Internship|Where Robots|Why Robots|Why the Future|Why AI internship|How FloLabs|How to Find)/i;
+  const paragraphStarterRegex =
+    /^(?:In |The |At |This |Whether |If you|If |Nowadays|Thanks|With robots|Meet |An AI|Completing|Curiosity|Deploy |Scale |Access |In short|Explore |Stay |Humanoid|Yes\.|AI will |Begin with|Healthcare,|Landing your|Learn more|Want to|Are you)/i;
   const isNestedBulletStarter = (line: string) => /^\s+[-•●]\s+/.test(line);
   const isBulletStarter = (line: string) =>
     line.startsWith("- ") || line.startsWith("• ") || line.startsWith("● ");
+
+  const hasNumberedHeadingAhead = (fromIndex: number, maxScan = 8) => {
+    let cursor = fromIndex + 1;
+    let scanned = 0;
+    while (cursor < contentLines.length && scanned < maxScan) {
+      const candidate = contentLines[cursor].trim();
+      if (!candidate) {
+        cursor += 1;
+        continue;
+      }
+      if (numberedHeadingRegex.test(candidate)) {
+        return true;
+      }
+      scanned += 1;
+      cursor += 1;
+    }
+    return false;
+  };
+
+  const isImplicitSectionHeading = (line: string, index: number, inFaqSection: boolean) => {
+    if (inFaqSection || faqHeadingRegex.test(line)) {
+      return false;
+    }
+    if (line.length > 110) {
+      return false;
+    }
+    if (projectSubheadingRegex.test(line)) {
+      return false;
+    }
+    if (/^https?:\/\//.test(line)) {
+      return false;
+    }
+    if (/:\s*$/.test(line) && !sectionHeadingLeadRegex.test(line)) {
+      return false;
+    }
+    if (/\.\s+\S/.test(line) && line.endsWith(".")) {
+      return false;
+    }
+    if (sectionHeadingLeadRegex.test(line)) {
+      return true;
+    }
+    if (/^(?:What|Why|How|Where|When)\s.+\?$/.test(line) && line.length < 90) {
+      return true;
+    }
+    if (!line.endsWith(".") && line.length <= 85 && !line.includes("http")) {
+      if (paragraphStarterRegex.test(line)) {
+        return false;
+      }
+      if (hasNumberedHeadingAhead(index)) {
+        return true;
+      }
+    }
+    if (!line.endsWith(".") && line.length <= 72 && /^[A-Z]/.test(line) && !paragraphStarterRegex.test(line)) {
+      return true;
+    }
+    return false;
+  };
 
   const getInlineNodes = (text: string) => {
     const segments = text.split(/(\*\*.*?\*\*|\[[^\]]+\]\([^)]+\)|https?:\/\/\S+)/g).filter(Boolean);
@@ -100,6 +163,8 @@ export function BlogArticleContent({ post }: BlogArticleContentProps) {
   const articleNodes: ReactNode[] = [];
   let index = 0;
   let spacerIndex = 0;
+  let inFaqSection = false;
+  let inNumberedProjectSection = false;
 
   while (index < contentLines.length) {
     const rawLine = contentLines[index];
@@ -112,10 +177,44 @@ export function BlogArticleContent({ post }: BlogArticleContentProps) {
       continue;
     }
 
+    if (faqHeadingRegex.test(line)) {
+      inFaqSection = true;
+    } else if (
+      inFaqSection &&
+      (sectionHeadingLeadRegex.test(line) ||
+        /^Final Thoughts$/i.test(line) ||
+        /^Conclusion$/i.test(line) ||
+        markdownHeadingRegex.test(line))
+    ) {
+      inFaqSection = false;
+    }
+
+    if (projectSubheadingRegex.test(line) && inNumberedProjectSection) {
+      articleNodes.push(
+        <h4 key={`${post.slug}-${line}-${index}`} className={headingH4Class}>
+          {line}
+        </h4>,
+      );
+      index += 1;
+      continue;
+    }
+
+    if (isImplicitSectionHeading(line, index, inFaqSection)) {
+      inNumberedProjectSection = false;
+      articleNodes.push(
+        <h2 key={`${post.slug}-${line}-${index}`} className={headingH2Class}>
+          {getInlineNodes(line)}
+        </h2>,
+      );
+      index += 1;
+      continue;
+    }
+
     if (numberedHeadingRegex.test(line)) {
+      inNumberedProjectSection = /^\d+\.\s/.test(line) && line.length < 120;
       articleNodes.push(
         <h3 key={`${post.slug}-${line}-${index}`} className={headingH3Class}>
-          {line}
+          {getInlineNodes(line)}
         </h3>,
       );
       index += 1;

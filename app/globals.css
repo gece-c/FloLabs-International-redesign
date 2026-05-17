@@ -54,7 +54,7 @@
   --accent: #d99c2b;
 }
 
-/* Projects page — viewport-sized paint layer (used with position: fixed in HomeScene) */
+/* Projects page: viewport-sized paint layer (used with position: fixed in HomeScene) */
 @layer components {
   .projects-scene-bg {
     background-color: #c8d4e4;

@@ -61,7 +61,7 @@ export function HomeScene({
       className={
         isGradient
           ? "relative min-h-[100dvh] w-full overflow-x-clip border-b border-border/70 dark:border-white/10"
-          : "relative min-h-[100dvh] w-full overflow-hidden border-b border-white/10"
+          : "relative min-h-[100dvh] w-full overflow-hidden border-b border-border/50 dark:border-white/10"
       }
     >
       {isGradient ? (
@@ -77,11 +77,15 @@ export function HomeScene({
             fill
             priority={priority}
             sizes="100vw"
-            className="object-cover"
+            className="object-cover brightness-[1.18] contrast-[0.97] saturate-[1.06] dark:brightness-100 dark:contrast-100 dark:saturate-100"
           />
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/45 to-black/70"
+            className="absolute inset-0 bg-background/22 dark:bg-transparent"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-gradient-to-b from-background/50 via-background/28 to-transparent dark:from-black/75 dark:via-black/45 dark:to-black/70"
           />
         </>
       ) : null}
@@ -118,7 +122,7 @@ export function HomeScene({
             <h2
               className={`min-w-0 flex-1 text-[1.65rem] uppercase leading-[1.08] tracking-[0.14em] sm:text-3xl sm:tracking-[0.16em] lg:text-4xl [font-family:var(--font-inter),Arial,Helvetica,sans-serif] ${
                 boldHeadline ? "font-bold" : "font-semibold"
-              } ${isGradient ? "text-foreground dark:text-white" : "text-white"}`}
+              } text-foreground dark:text-white`}
             >
               {headline}
             </h2>
@@ -128,7 +132,7 @@ export function HomeScene({
           </div>
           <div
             className={`mt-6 space-y-4 text-base font-normal leading-relaxed sm:text-lg ${
-              isGradient ? "text-muted dark:text-white/88" : "text-white/88"
+              isGradient ? "text-muted dark:text-white/88" : "text-muted dark:text-white/82"
             }`}
           >
             {typeof description === "string" ? <p>{description}</p> : description}
