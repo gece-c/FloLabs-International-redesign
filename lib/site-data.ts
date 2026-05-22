@@ -260,13 +260,71 @@ export const verticals = [
   },
 ];
 
-export const methodology = [
-  "Recorded Meetings",
-  "Brainwriting Exercises",
-  "Advanced AI Tools",
-  "Collaborative Learning",
-  "Hands-on Projects",
+export type PillarItem = {
+  title: string;
+  text: string;
+};
+
+export const aboutIntro = {
+  headline: "FloLabs Innovations Group",
+  tagline: "A FloLabs company focused on innovation in AI and robotics.",
+  paragraphs: [
+    "FloLabs Innovations Group is an incubator launching innovative projects in AI and Robotics. We enhance learning and project outcomes through teamwork, idea sharing, and innovative methods like brainstorming and LLM automation, preparing students with practical skills.",
+    "We provide students, career changers, and professionals with a remote, unique, powerful, and immersive hands-on educational experience where they learn what they will use in the real world. We are not just a school, we are a community of learners who are passionate about learning and growing.",
+  ],
+};
+
+export const aboutObjectives: PillarItem[] = [
+  {
+    title: "Experiential Learning",
+    text: "Unique and immersive educational training with hands-on, real world experience.",
+  },
+  {
+    title: "Practical Experience",
+    text: "Work on innovative, marketable projects with real-world impact.",
+  },
 ];
+
+export const aboutMission = {
+  headline: "Inspire, empower, and build the future",
+  headlineLead: "Inspire, empower, and",
+  headlineHighlight: "build the future",
+  paragraphs: [
+    "Inspire and empower individuals through transformative educational experiences that foster global perspectives, innovative thinking, and practical skills.",
+    "We aim to cultivate a culture of curiosity and creativity, create jobs of the future, and build innovative solutions for a rapidly changing world.",
+  ],
+};
+
+export const methodology: PillarItem[] = [
+  {
+    title: "Recorded Meetings",
+    text: "We record and transcribe every meeting so you can review information when necessary.",
+  },
+  {
+    title: "Brainwriting Exercises",
+    text: "Brain writing is an exercise to help the brain get into a creative and productive state.",
+  },
+  {
+    title: "Advanced AI Tools",
+    text: "Language Learning Models help automate workflow, brainstorm, and advise work production.",
+  },
+  {
+    title: "Collaborative Learning",
+    text: "We teach each other and learn together through peer support, shared practice, and active teamwork.",
+  },
+  {
+    title: "Hands-on Projects",
+    text: "Real builds and marketable ventures connect learning to launch.",
+  },
+];
+
+/** First four methodology pillars — detailed cards on the about page. */
+export const aboutMethodology = methodology.slice(0, 4);
+
+export const aboutMethodologyIntro = {
+  headline: "Helping people learn better",
+  tagline: "Our methodology is to foster collaboration and creativity.",
+};
 
 export type RelatedArticle = {
   title: string;

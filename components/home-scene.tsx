@@ -33,6 +33,10 @@ type HomeSceneProps = {
   centerIntroMaxWidthClass?: string;
   /** Rendered at the end of the headline row (e.g. back link on project detail). */
   headerAside?: ReactNode;
+  /** Center headline, body, and CTA (home hero). */
+  centerText?: boolean;
+  /** Delay before reveal animation (ms). Defaults to 0 for `id="home"`, 1000 for other scenes. */
+  revealDelay?: number;
 };
 
 export function HomeScene({
@@ -52,8 +56,13 @@ export function HomeScene({
   centerContent = false,
   centerIntroMaxWidthClass,
   headerAside,
+  centerText = false,
+  revealDelay,
 }: HomeSceneProps) {
   const isGradient = background === "gradient";
+  const isHeroScene = id === "home";
+  const effectiveRevealDelay = revealDelay ?? (isHeroScene ? 0 : 1000);
+  const layoutCentered = centerContent || centerText;
 
   return (
     <section
