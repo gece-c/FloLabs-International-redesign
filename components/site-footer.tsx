@@ -92,8 +92,7 @@ const checkMoreColumns: FooterLink[][] = [
   [
     { label: "CAIPO", href: "https://www.caipo.ai/", external: true },
     { label: "MoodChanger", href: "https://moodchanger.ai/", external: true },
-    // TODO: set real href when RoboCollective URL is confirmed
-    { label: "RoboCollective", href: "#" },
+    { label: "RoboCollective", href: "https://www.robocollective.ai/", external: true },
     {
       label: "Athletic Performance",
       href: "https://www.athleticperformanceintelligence.com/#cta",
@@ -101,7 +100,7 @@ const checkMoreColumns: FooterLink[][] = [
     },
   ],
   [
-    { label: "FloBrain", href: "https://flobrain.vercel.app/", external: true },
+    { label: "FloBrain", href: "https://www.flobrain.ai/", external: true },
     { label: "FloTravel", href: "https://www.flomadtravel.com/", external: true },
     {
       label: "Space Ventures Institute",
@@ -120,7 +119,7 @@ const checkMoreColumns: FooterLink[][] = [
       href: "https://hephaestus.international/",
       external: true,
     },
-    { label: "FloStudio", href: "https://www.flostudios.ai/", external: true },
+    { label: "FloStudios", href: "https://www.flostudios.ai/", external: true },
   ],
 ];
 
@@ -133,6 +132,19 @@ function YouTubeIcon() {
       fill="currentColor"
     >
       <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8ZM9.6 15.5V8.5l6.3 3.5-6.3 3.5Z" />
+    </svg>
+  );
+}
+
+function LinkedInIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-6 w-6"
+      fill="currentColor"
+    >
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
     </svg>
   );
 }
@@ -206,7 +218,7 @@ export function SiteFooter() {
 
             <div>
               <p className={columnHeadingClass}>Social media</p>
-              <div className="mt-4">
+              <div className="mt-4 flex items-center gap-4">
                 <a
                   href="https://www.youtube.com/@FloLabsInnovation"
                   className="inline-flex text-white transition-colors hover:text-[#2E6BE6]"
@@ -215,6 +227,15 @@ export function SiteFooter() {
                   aria-label="FloLabs on YouTube"
                 >
                   <YouTubeIcon />
+                </a>
+                <a
+                  href="https://www.linkedin.com/company/flolabs-innovation/"
+                  className="inline-flex text-white transition-colors hover:text-[#2E6BE6]"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="FloLabs on LinkedIn"
+                >
+                  <LinkedInIcon />
                 </a>
               </div>
             </div>
